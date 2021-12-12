@@ -46,7 +46,7 @@
 	<div class="container-lg my-5" id="three container">
 		<div class="row">
 			<div class="col-sm-4" id="container one">
-				<div class="p-5 bg-primary text-light">COL 1</div>
+				<div class="p-5 bg-primary text-light">"${appName}"</div>
 			</div>
 			<div class="col-sm-4" id="container two">
 				<div class="p-5 bg-primary text-light">COL 2</div>
@@ -78,6 +78,7 @@
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous">
+	</script>
 </body>
 </html>

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  * @author Pankesh
- *
+ * Repository for Storage related operations
  */
 
 @Repository
@@ -34,9 +34,6 @@ public class StorageRepository {
 			
 			storedProcedure.execute();
 			obj=storedProcedure.getResultList();
-			
-			System.out.println(obj);
-			
 			
 		}
 		catch(Exception e) {

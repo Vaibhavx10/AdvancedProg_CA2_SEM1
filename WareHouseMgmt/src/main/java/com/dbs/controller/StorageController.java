@@ -7,25 +7,23 @@ import java.util.List;
 
 /**
  * @author Pankesh
- *
+ * Service for Storage related operations
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.dbs.entity.StorageDetail;
 import com.dbs.service.StorageService;
 
-@RestController
+@Controller
 public class StorageController {
-	@Autowired
-	private StorageService storageService;
 	
-	
-	@GetMapping("/getStorageDetail")
-	public List<StorageDetail> getStorageByType(int storageTypeID) {
-		return storageService.getStorageByType(storageTypeID);
+	@GetMapping("/storage")
+	public String getStorages(Model model) {
+		return "Storage";
 	}
+	
 }

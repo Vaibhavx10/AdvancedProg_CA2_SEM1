@@ -16,23 +16,17 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author Pankesh
- *
+ * @author Pankesh Entity for storage details
  */
 
-@NamedStoredProcedureQuery(
-		  name="GetStorageByType",
-		  procedureName="WHM_GetAllStorageByType",
-		  resultClasses = { StorageDetail.class },
-		  parameters={
-		            @StoredProcedureParameter(name="p_StorageTypeId", type=String.class, mode=ParameterMode.IN)
-		        }
-		)
-		@Entity
-		@Data
-		@AllArgsConstructor
-		@NoArgsConstructor
-		@SuppressWarnings("unused")
+@NamedStoredProcedureQuery(name = "GetStorageByType", procedureName = "WHM_GetAllStorageByType", resultClasses = {
+		StorageDetail.class }, parameters = {
+				@StoredProcedureParameter(name = "p_StorageTypeId", type = String.class, mode = ParameterMode.IN) })
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@SuppressWarnings("unused")
 public class StorageDetail implements Serializable {
 
 	/**
@@ -42,11 +36,18 @@ public class StorageDetail implements Serializable {
 	@Id
 	@GeneratedValue
 	private Integer StorageId;
-	
+
 	private Integer StorageTypeId;
 	private String StorageTypeName;
 	private String StorageGUID;
 	private Integer ProductQuantity;
 	private Integer Capacity;
+
+	@Override
+	public String toString() {
+		return "StorageDetail [StorageId=" + StorageId + ", StorageTypeId=" + StorageTypeId + ", StorageTypeName="
+				+ StorageTypeName + ", StorageGUID=" + StorageGUID + ", ProductQuantity=" + ProductQuantity
+				+ ", Capacity=" + Capacity + "]";
+	}
+
 }
- 

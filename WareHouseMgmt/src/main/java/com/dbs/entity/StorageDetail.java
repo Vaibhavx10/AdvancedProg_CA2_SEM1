@@ -9,7 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedStoredProcedureQuery;
-
+import javax.persistence.StoredProcedureParameter;
+import javax.persistence.ParameterMode;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,9 +21,12 @@ import lombok.NoArgsConstructor;
  */
 
 @NamedStoredProcedureQuery(
-		  name="GetStoragesByType",
+		  name="GetStorageByType",
 		  procedureName="WHM_GetAllStorageByType",
-		  resultClasses = { StorageDetail.class }
+		  resultClasses = { StorageDetail.class },
+		  parameters={
+		            @StoredProcedureParameter(name="p_StorageTypeId", type=String.class, mode=ParameterMode.IN)
+		        }
 		)
 		@Entity
 		@Data

@@ -30,7 +30,9 @@ public class Product {
 	private Integer SupplierId;
 	private Integer QuantityPerUnit;
 	private Integer UnitPrice;
-
+	private String ProductDate;
+	
+	
 	public Integer getProductId() {
 		return ProductId;
 	}
@@ -86,5 +88,15 @@ public class Product {
 	public void setUnitPrice(Integer unitPrice) {
 		UnitPrice = unitPrice;
 	}
+
+	public String getProductDate() {
+		return ProductDate;
+	}
+
+	public void setProductDate(String productDate) {
+		ProductDate = productDate;
+	}
+	
+	
 
 }

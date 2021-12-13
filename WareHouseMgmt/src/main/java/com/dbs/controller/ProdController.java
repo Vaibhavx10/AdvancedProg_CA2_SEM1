@@ -37,7 +37,7 @@ public class ProdController {
 	public String dashboard(Model model) {
 		System.out.println("inside dashboard");
 		model.addAttribute("appName", "dashboard");
-		return "dom";
+		return "Dashboard";
 	}
 
 	@GetMapping("/home")

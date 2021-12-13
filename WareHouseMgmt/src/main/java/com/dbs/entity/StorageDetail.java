@@ -43,7 +43,8 @@ public class StorageDetail implements Serializable {
 	@GeneratedValue
 	private Integer StorageId;
 	
-	private Integer StorageTypeId;	
+	private Integer StorageTypeId;
+	private String StorageTypeName;
 	private String StorageGUID;
 	private Integer ProductQuantity;
 	private Integer Capacity;

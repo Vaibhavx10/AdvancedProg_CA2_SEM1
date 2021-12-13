@@ -50,6 +50,7 @@ public class ProdController {
 	@GetMapping("/getAllProducts")
 	public String getAllProducts(Model model) {
 		List<Product> lproduct = prodService.getAllProducts();
+		System.out.println("lproduct >> "+lproduct);
 		model.addAttribute("allProducts", lproduct);
 		return "Dashboard";
 	}

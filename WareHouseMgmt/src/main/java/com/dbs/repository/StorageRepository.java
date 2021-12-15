@@ -9,8 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
-import com.dbs.entity.*;
+
+
 import org.springframework.stereotype.Repository;
+
+import com.dbs.entity.StorageDetail;
+import com.dbs.entity.StorageInventory;
 
 
 

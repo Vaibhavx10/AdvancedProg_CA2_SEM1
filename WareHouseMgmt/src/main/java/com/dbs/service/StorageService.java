@@ -29,8 +29,7 @@ public class StorageService {
 	}
 
 	
-	/* Get data based on CustID */
-	public List<StorageInventory> getStorageInventory(int storageId) {
+	public List<StorageInventory> getStorageInventory(int storageId){
 		return storageRepo.getStorageInventory(storageId);
 	}
 }

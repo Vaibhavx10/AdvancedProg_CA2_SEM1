@@ -33,7 +33,7 @@ public class StorageRepository {
 			storedProcedure.setParameter("p_StorageTypeId", storageTypeId);
 			
 			storedProcedure.execute();
-			obj=storedProcedure.getResultList();
+			obj=(List<StorageDetail>)storedProcedure.getResultList();
 			
 		}
 		catch(Exception e) {

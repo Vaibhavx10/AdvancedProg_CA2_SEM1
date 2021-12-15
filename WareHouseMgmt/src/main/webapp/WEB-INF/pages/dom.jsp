@@ -45,6 +45,5 @@ const config = {
 
 
 </script>
-
 </body>
 </html>

@@ -45,7 +45,7 @@ public class StorageRepository {
 	
 	
 	@SuppressWarnings("unchecked")
-	public List<StorageInventory> GetStorageInventory(int storageId) {
+	public List<StorageInventory> getStorageInventory(int storageId) {
 		List<StorageInventory> obj=null;
 		try {
 			StoredProcedureQuery storedProcedure = manager.createStoredProcedureQuery("WHM_GetStorageInventory")

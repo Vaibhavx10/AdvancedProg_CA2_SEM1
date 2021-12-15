@@ -57,17 +57,18 @@
     </ul>
     </div>
     </nav>
-    <!--three containers using grid-->
+    <div class="row">
+        <!--three containers using grid-->
     <div class="container-lg my-5" id="three container">
         <div class="row">
-            <div class="col-sm-2" id="container one">
+            <div class="col-lg-2" id="container one">
                 <div class="p-5 bg-primary text-light">COL 1</div>
             </div>
-            <div class="col-sm-8 text-center" id="container two">
+            <div class="col-lg-8 text-center" id="container two">
                 <div class="p-5">
                 
 				<div class="dropdown">
-				  <button class="btn btn-lg btn-danger dropdown-toggle" type="button" id="dd_StorageType" data-bs-toggle="dropdown" aria-expanded="false">
+				  <button class="btn btn-lg btn-danger dropdown-toggle" type="button" id="dd_StorageType" data-bs-toggle="dropdown" aria-expanded="false" style="width:350px">
 				
 				  </button>
 				  <ul class="dropdown-menu" aria-labelledby="dd_StorageType" id="ul_StorageType">
@@ -78,32 +79,28 @@
 
 				</div>
             </div>
-            <div class="col-sm-2" id="container three">
+            <div class="col-lg-2" id="container three">
                 <div class="p-5 bg-primary text-light">COL 3</div>
             </div>
         </div>
     </div>
+    </div>
+    
+    
+    
+     <div class="row">
+    
     <!--SINGLE CONTAINER-->
     <div class="container p-5" id="c_storage">  
     
-    
-<!--     <table id="storageTable" class="display">
-    <thead>
-        <tr id="storageTable_header">
-            <th id="th_StorageId">StorageId</th>
-            <th id="th_StorageTypeName">StorageTypeName</th>
-            <th id="th_StorageGUID">StorageGUID</th>
-            <th id="th_ProductQuantity">ProductQuantity</th>
-            <th id="th_Capacity">Capacity</th>          
-        </tr>
-    </thead>
-</table> -->
     
     
     </div>
 
 
 
+    
+    </div>
 
 
 

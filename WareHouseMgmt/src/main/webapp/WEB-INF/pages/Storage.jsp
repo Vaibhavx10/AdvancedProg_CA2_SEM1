@@ -63,14 +63,14 @@
             <div class="col-sm-2" id="container one">
                 <div class="p-5 bg-primary text-light">COL 1</div>
             </div>
-            <div class="col-sm-8" id="container two">
-                <div class="p-5 bg-primary text-light">
+            <div class="col-sm-8 text-center" id="container two">
+                <div class="p-5">
                 
 				<div class="dropdown">
-				  <button class="btn btn-danger dropdown-toggle" type="button" id="dd_StorageType" data-bs-toggle="dropdown" aria-expanded="false">
-				    Dropdown button
+				  <button class="btn btn-lg btn-danger dropdown-toggle" type="button" id="dd_StorageType" data-bs-toggle="dropdown" aria-expanded="false">
+				
 				  </button>
-				  <ul class="dropdown-menu" aria-labelledby="dd_StorageType">
+				  <ul class="dropdown-menu" aria-labelledby="dd_StorageType" id="ul_StorageType">
 				    
 				  </ul>
 				</div>
@@ -84,11 +84,11 @@
         </div>
     </div>
     <!--SINGLE CONTAINER-->
-    <div class="container p-5" id="">  
+    <div class="container p-5" id="c_storage">  
     
     
-    <table id="storageTable" class="display">
-<!--     <thead>
+<!--     <table id="storageTable" class="display">
+    <thead>
         <tr id="storageTable_header">
             <th id="th_StorageId">StorageId</th>
             <th id="th_StorageTypeName">StorageTypeName</th>
@@ -96,8 +96,8 @@
             <th id="th_ProductQuantity">ProductQuantity</th>
             <th id="th_Capacity">Capacity</th>          
         </tr>
-    </thead> -->
-</table>
+    </thead>
+</table> -->
     
     
     </div>
@@ -107,71 +107,7 @@
 
 
 
-<script>
 
-var storageTypes=[
-	"1": "GeneralStorage"
-	"2": "Fridge"
-	"3": "Shelf"
-]
-
-function init(){
-
-	getStorageDetails(1);
-	}
-
-
-function getStorageType(){
-	
-	var dropdown =  document.getElementById("dd_StorageType")
-	
-	storageTypes.forEach(item=>	1{
-		let data='<li><a class="dropdown-item" onclick="">Action</a></li>';
-		dropdown.innerHTML=dropdown.innerHTML	+	data	
-	})
-	
-}
-
-
-function getStorageDetails (storageTypeId){
-	
-	$.ajax({
-		  url: "/getStorageDetail",
-		  type: "get",
-		  data: { 
-			  storageTypeID: storageTypeId, 
-		  },
-		  success: function(response) {
-			  console.log(response);
-			  
-			$('#storageTable').DataTable( {
-			        data: response,
-			        columns: [
-			            { title: "StorageId" },
-			            { title: "StorageTypeName" },
-			            { title: "StorageGUID" },
-			            { title: "ProductQuantity" },
-			            { title: "Capacity" },
-			            { title: "Action" }
-			        ]
-			    } );
-		  },
-		  error: function(xhr) {
-		    alert('error!')
-		  }
-		});
-	
-
-	
-}
-
-
-function openStorage(StorageId){
-	alert(StorageId);
-}
-
-
-</script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
@@ -182,7 +118,7 @@ function openStorage(StorageId){
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
 
-
+<script src="../javascript/StorageDetail.js"></script>
 
 </body>
 </html>

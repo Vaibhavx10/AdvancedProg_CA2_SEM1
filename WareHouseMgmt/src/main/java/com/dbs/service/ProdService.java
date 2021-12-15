@@ -1,5 +1,7 @@
 package com.dbs.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +20,17 @@ public class ProdService {
 		return prodctReposiotry.save(product);
 	}
 	
+	public List<Product> getAllProducts() {
+		List<Product> prdlist = prodctReposiotry.findAll(); 
+		return prdlist;
+	}
+	
 	public Product getStuffByID(int pID) {
 		return prodctReposiotry.findById(pID).orElse(null);
 	}
 	
-	public Product getStuffByName(String pName) {
-		return prodctReposiotry.findByName(pName).orElse(null);
+	public List<Product> getStuffByName(String pName) {
+		return prodctReposiotry.findByProductName(pName);
 	}
 	
 	public String deleteStuff(Integer id) {
@@ -32,11 +39,11 @@ public class ProdService {
 	}
 	
 	public Product updateStuff(Product pro) {
-		Product prd  = prodctReposiotry.findById(pro.getId()).orElse(null);
-		prd.setId(7);
-		prd.setName("AAA");;
-		prd.setPrice("879");;
-		prd.setQuant("657687");
+		Product prd  = prodctReposiotry.findById(pro.getProductCategoryId()).orElse(null);
+		prd.setProductId(1);;
+		prd.setProductName("AAA");
+		prd.setUnitPrice(879);
+		prd.setQuantityPerUnit(657687);
 		return prodctReposiotry.save(prd);
 		
 	}

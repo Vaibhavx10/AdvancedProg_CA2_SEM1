@@ -1,5 +1,6 @@
 package com.dbs.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -50,8 +51,20 @@ public class ProdController {
 	@GetMapping("/getAllProducts")
 	public String getAllProducts(Model model) {
 		List<Product> lproduct = prodService.getAllProducts();
+		
 		System.out.println("lproduct >> "+lproduct);
-		model.addAttribute("allProducts", lproduct);
+		
+		ArrayList<String> xAxis = new ArrayList<String>();
+		ArrayList<String> yAxis = new ArrayList<String>();
+		
+		for (int i = 0; i < lproduct.size(); i++) {
+			yAxis.add('"'+lproduct.get(i).getProductDate()+'"');
+			xAxis.add('"'+lproduct.get(i).getProductName()+'"');	
+		}
+		
+		model.addAttribute("xAxis", xAxis);
+		model.addAttribute("yAxis", yAxis);
+		
 		return "Dashboard";
 	}
 }

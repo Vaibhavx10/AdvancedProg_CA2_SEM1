@@ -70,4 +70,10 @@ public class ProdController {
 		
 		return "Dashboard";
 	}
+	
+	
+	@GetMapping("/getShipmentInfo")
+	public void getShipmentInfo() {
+		prodService.getShipmentDetails();
+	}
 }

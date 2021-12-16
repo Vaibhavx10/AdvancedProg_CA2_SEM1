@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.dbs.entity.Product;
 import com.dbs.repository.ProdctReposiotry;
+import com.dbs.repository.ShipmentRepo;
 
 @Service
 public class ProdService {
@@ -14,6 +15,10 @@ public class ProdService {
 	
 	@Autowired
 	private ProdctReposiotry prodctReposiotry;
+	
+	
+	@Autowired
+	private ShipmentRepo shipmentRepo;
 	
 	
 	public Product saveStuff(Product product) {
@@ -53,4 +58,9 @@ public class ProdService {
 		
 	}
 	
+	
+	
+	public void getShipmentDetails() {
+		System.out.println("shipmentRepo :: "+shipmentRepo.findAll());
+	}
 }

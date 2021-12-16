@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.dbs.entity.Customer;
 import com.dbs.entity.StorageDetail;
+import com.dbs.entity.StorageInventory;
 import com.dbs.repository.StorageRepository;
 
 @Service
@@ -27,4 +28,13 @@ public class StorageService {
 		return storageRepo.getStorageByType(storageTypeID);
 	}
 
+	
+	public List<StorageInventory> getStorageInventory(int storageId){
+		return storageRepo.getStorageInventory(storageId);
+	}
+	
+	
+	public List<StorageDetail> getStorageInfo(int storageId){
+		return storageRepo.getStorageInfo(storageId);
+	}
 }

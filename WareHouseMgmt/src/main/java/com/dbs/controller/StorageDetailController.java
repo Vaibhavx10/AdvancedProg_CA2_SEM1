@@ -33,5 +33,10 @@ public class StorageDetailController {
 	@GetMapping("/getStorageInventory")
 	public List<StorageInventory> getStorageInventory(int storageId) {
 		return storageService.getStorageInventory(storageId);
+	}	
+	
+	@GetMapping("/getStorageInfo")
+	public List<StorageDetail> getStorageInfo(int storageId) {
+		return storageService.getStorageInfo(storageId);
 	}
 }

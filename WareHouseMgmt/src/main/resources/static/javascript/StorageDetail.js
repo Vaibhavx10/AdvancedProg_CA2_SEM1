@@ -73,7 +73,7 @@ function getStorageDetails (storageTypeId){
 
 		  },
 		  error: function(xhr) {
-		    alert('error!')
+		    console.log(xhr)
 		  }
 		});
 	
@@ -81,10 +81,9 @@ function getStorageDetails (storageTypeId){
 
 
 function rowClick(){
-		var table = $('#storageTable').DataTable();
-		
+		var table = $('#storageTable').DataTable();		
         var data = table.row( this ).data();
-        alert( 'You clicked on '+data[0]+'\'s row' );
+		window.location.href=`../storageInventory?storageId=${data[0]}`;
 }
 
 

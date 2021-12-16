@@ -66,6 +66,28 @@
             <div class="col-lg-8 text-center" id="container two">
                 <div class="p-5">
                 
+                <table>
+	                <tbody style="align:left;" class="m-2">
+		                <tr>
+			                <td id="lb_StorageId">StorageId</td><td>:</td><td id="val_StorageId"></td> 
+		                </tr>
+		                <tr>
+		                	<td id="lb_StorageGUID">Storage GUID</td><td>:</td><td id="val_StorageGUID"></td>
+		                </tr>
+		               	<tr>
+			                <td id="lb_StorageTypeId">Storage TypeId</td><td>:</td><td id="val_StorageTypeId"></td>
+			           </tr>
+		                 <tr>
+			                <td id="lb_StorageTypeName">Storage Type Name</td><td>:</td><td id="val_StorageTypeName"></td>
+		                </tr>
+		                 <tr>
+			                <td id="lb_ProductQuantity">Product Quantity</td><td>:</td><td id="val_ProductQuantity"></td>
+			               </tr>
+		                 <tr>			                
+			                <td id="lb_Capacity">Capacity</td><td>:</td><td id="val_Capacity"></td>
+		                </tr>
+	                </tbody>
+                </table>
 
 
 

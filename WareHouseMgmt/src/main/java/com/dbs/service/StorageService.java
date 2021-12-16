@@ -32,4 +32,9 @@ public class StorageService {
 	public List<StorageInventory> getStorageInventory(int storageId){
 		return storageRepo.getStorageInventory(storageId);
 	}
+	
+	
+	public List<StorageDetail> getStorageInfo(int storageId){
+		return storageRepo.getStorageInfo(storageId);
+	}
 }

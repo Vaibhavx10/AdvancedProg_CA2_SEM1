@@ -67,4 +67,23 @@ public class StorageRepository {
 		return obj;
 	}
 	
+	
+	@SuppressWarnings("unchecked")
+	public List<StorageDetail> getStorageInfo(int storageId) {
+		List<StorageDetail> obj=null;
+		try {
+			StoredProcedureQuery storedProcedure = manager.createStoredProcedureQuery("WHM_GetStorageInfo")
+					.registerStoredProcedureParameter("p_StorageId" , Integer.class , ParameterMode.IN);
+											
+			storedProcedure.setParameter("p_StorageId", storageId);
+			
+			storedProcedure.execute();
+			obj=(List<StorageDetail>)storedProcedure.getResultList();
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return obj;
+	}
 }

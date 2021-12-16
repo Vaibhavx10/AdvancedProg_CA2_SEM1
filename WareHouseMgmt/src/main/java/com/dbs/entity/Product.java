@@ -31,8 +31,15 @@ public class Product {
 	private Integer QuantityPerUnit;
 	private Integer UnitPrice;
 	private String ProductDate;
+	private Long ProductPerDay;
 	
 	
+
+	public Product( String productDate, Long productPerDay) {
+		this.ProductDate = productDate;
+		this.ProductPerDay = productPerDay;
+	}
+
 	public Integer getProductId() {
 		return ProductId;
 	}
@@ -95,6 +102,14 @@ public class Product {
 
 	public void setProductDate(String productDate) {
 		ProductDate = productDate;
+	}
+
+	public Long getProductPerDay() {
+		return ProductPerDay;
+	}
+
+	public void setProductPerDay(Long productPerDay) {
+		ProductPerDay = productPerDay;
 	}
 	
 	

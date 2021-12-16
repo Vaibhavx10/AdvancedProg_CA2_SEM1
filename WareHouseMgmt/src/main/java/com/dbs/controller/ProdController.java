@@ -50,20 +50,23 @@ public class ProdController {
 
 	@GetMapping("/getAllProducts")
 	public String getAllProducts(Model model) {
-		List<Product> lproduct = prodService.getAllProducts();
+		List<Product> lproduct = prodService.getAllProductsPerDate();
 		
-		System.out.println("lproduct >> "+lproduct);
 		
-		ArrayList<String> xAxis = new ArrayList<String>();
-		ArrayList<String> yAxis = new ArrayList<String>();
+		System.out.println(" lproduct :: "+lproduct);
 		
-		for (int i = 0; i < lproduct.size(); i++) {
-			yAxis.add('"'+lproduct.get(i).getProductDate()+'"');
-			xAxis.add('"'+lproduct.get(i).getProductName()+'"');	
-		}
 		
-		model.addAttribute("xAxis", xAxis);
-		model.addAttribute("yAxis", yAxis);
+		  System.out.println("lproduct >> "+lproduct);
+		  
+		  ArrayList<String> xAxis = new ArrayList<String>(); 
+		  ArrayList<Long> yAxis = new ArrayList<Long>();
+		  
+		  for (int i = 0; i < lproduct.size(); i++) {
+		  yAxis.add(lproduct.get(i).getProductPerDay());
+		  xAxis.add('"'+lproduct.get(i).getProductDate()+'"'); }
+		  
+		  model.addAttribute("xAxis", xAxis); model.addAttribute("yAxis", yAxis);
+		 
 		
 		return "Dashboard";
 	}

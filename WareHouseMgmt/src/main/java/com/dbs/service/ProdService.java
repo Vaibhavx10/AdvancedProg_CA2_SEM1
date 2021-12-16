@@ -25,6 +25,11 @@ public class ProdService {
 		return prdlist;
 	}
 	
+	public List<Product> getAllProductsPerDate() {
+		List<Product> prd= prodctReposiotry.getProductsAsPerDate(); 
+		return prd;
+	}
+	
 	public Product getStuffByID(int pID) {
 		return prodctReposiotry.findById(pID).orElse(null);
 	}

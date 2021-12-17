@@ -1,31 +1,30 @@
 function countries_code() {
     var val= document.getElementById("countries").value;
     if (val==="select country") {
-        document.getElementById("phone-no").value= "";
+        document.getElementById("telephone-number").value= "";
     }
     else if (val==="US") {
-        document.getElementById("phone-no").value= "+1";
+        document.getElementById("telephone-number").value= "+1";
     }
     else if (val==="JP") {
-        document.getElementById("phone-no").value= "+81";
+        document.getElementById("telephone-number").value= "+81";
     }
     else if (val==="IN") {
-        document.getElementById("phone-no").value= "+91";
+        document.getElementById("telephone-number").value= "+91";
     }
     else if (val==="BR") {
-        document.getElementById("phone-no").value= "+55";
+        document.getElementById("telephone-number").value= "+55";
     }
     else if (val==="IE") {
-        document.getElementById("phone-no").value= "+353";
+        document.getElementById("telephone-number").value= "+353";
     }
     else if (val==="CN") {
-        document.getElementById("phone-no").value= "+86";
+        document.getElementById("telephone-number").value= "+86";
     }
     else if (val==="IT") {
-        document.getElementById("phone-no").value= "+39";
+        document.getElementById("telephone-number").value= "+39";
     }
     else if (val==="FR") {
-        document.getElementById("phone-no").value= "+33";
+        document.getElementById("telephone-number").value= "+33";
     }
 }
-

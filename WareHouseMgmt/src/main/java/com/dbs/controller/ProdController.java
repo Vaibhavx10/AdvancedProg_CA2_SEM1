@@ -27,9 +27,31 @@ public class ProdController {
 	@Autowired
 	ProdService prodService;
 
-	@PostMapping("/addProdct")
-	public Product addProdct(@RequestBody Product product) {
-		return prodService.saveStuff(product);
+	/*
+	 * @PostMapping("/addProdct") public Product addProdct(@RequestBody Product
+	 * product) { return prodService.saveStuff(product); }
+	 */
+	
+	@GetMapping("/addProduct")
+	public String addProdct(Model model) {
+		
+		
+		try {
+			//getProduct details from Product Tables
+			List<String> prd = prodService.getProductNameAndStorageTypeID();
+			System.out.println("prd "+prd);
+			
+			//Used to convert entity to JSON
+			ObjectMapper prdMapper = new ObjectMapper();
+			String jsonProductInfo = prdMapper.writeValueAsString(prd);
+			System.out.println("AllprdInfo :: "+jsonProductInfo);
+			model.addAttribute("allPrduct",jsonProductInfo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			
+		return "AllProducts";
 	}
 
 	@GetMapping("/getProduct/{id}")

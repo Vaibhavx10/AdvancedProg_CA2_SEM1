@@ -31,6 +31,12 @@ public class ProdService {
 		return prdlist;
 	}
 	
+	
+	public List<String> getProductNameAndStorageTypeID() {
+		List<String> prdlist = prodctReposiotry.getProductNameAndStorageTypeID(); 
+		return prdlist;
+	}
+	
 	public List<Product> getAllProductsPerDate() {
 		List<Product> prd= prodctReposiotry.getProductsAsPerDate(); 
 		return prd;

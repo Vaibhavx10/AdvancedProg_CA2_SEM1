@@ -17,7 +17,7 @@ import com.dbs.service.StorageService;
 
 /**
  * @author Pankesh
- * Service for Storage related operations
+ * RestConrtoller for Storage related operations
  */
 
 @RestController
@@ -25,16 +25,34 @@ public class StorageDetailController {
 	@Autowired
 	private StorageService storageService;
 	
+	/**API Method : getStorageByType
+	 * @author Pankesh
+	 * Get all storages by type
+	 * parameters : int
+	 * returns : List<StorageDetail>
+	 */	
 	@GetMapping("/getStorageDetail")
 	public List<StorageDetail> getStorageByType(int storageTypeID) {
 		return storageService.getStorageByType(storageTypeID);
 	}
 	
+	/**API Method : getStorageInventory
+	 * @author Pankesh
+	 * Get storage inventory info
+	 * parameters : int
+	 * returns : List<StorageInventory>
+	 */	
 	@GetMapping("/getStorageInventory")
 	public List<StorageInventory> getStorageInventory(int storageId) {
 		return storageService.getStorageInventory(storageId);
 	}	
 	
+	/**API Method : getStorageInfo
+	 * @author Pankesh
+	 * Get storage detail by id
+	 * parameters : int
+	 * returns : List<StorageDetail>
+	 */	
 	@GetMapping("/getStorageInfo")
 	public List<StorageDetail> getStorageInfo(int storageId) {
 		return storageService.getStorageInfo(storageId);

@@ -1,10 +1,11 @@
 package com.dbs.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "`Order`")
+
 public class Order {
 	@Id
 	@GeneratedValue
@@ -21,9 +22,6 @@ public class Order {
 	private String OrderDate;
 	private String CustomerId;
 	private String PurchaseDetails;
-	
-	
-	
-	
-	
+	private List<PurchaseDetail> PurchaseList;
+
 }

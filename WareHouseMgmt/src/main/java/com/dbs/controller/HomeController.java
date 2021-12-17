@@ -26,4 +26,15 @@ public class HomeController {
 	public String Login(Model model) {
 		return "Login";
 	}
+	
+	/**Method : Orders
+	 * @author Pankesh
+	 * Get Orders page
+	 * parameters : Model
+	 * returns : String
+	 */	
+	@GetMapping("/Orders")
+	public String Orders(Model model) {
+		return "Order";
+	}
 }

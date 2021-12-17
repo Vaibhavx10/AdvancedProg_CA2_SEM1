@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dbs.entity.Product;
 import com.dbs.entity.Shipment;
 import com.dbs.service.ProdService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class ProdController {
@@ -72,13 +73,22 @@ public class ProdController {
 		
 		//Get Data for Shipment Display
 		List<Shipment> shdata = prodService.getShipmentDetails();
+		
+		ObjectMapper objmap = new ObjectMapper();
+		try {
+			String jsonShipmentInfo = objmap.writeValueAsString(shdata);
+			System.out.println(jsonShipmentInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 
 		return "Dashboard";
 	}
 	
 	
 	@GetMapping("/getShipmentInfo")
-	public void getShipmentInfo() {
-		prodService.getShipmentDetails();
+	public List<Shipment> getShipmentInfo() {
+		return prodService.getShipmentDetails();
 	}
 }

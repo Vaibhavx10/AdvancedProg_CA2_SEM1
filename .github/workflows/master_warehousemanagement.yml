@@ -6,12 +6,12 @@ name: Build and deploy WAR app to Azure Web App - warehousemanagement
 on:
   push:
     branches:
-      - master/WareHouseMgmt/
+      - master
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
           path: '${{ github.workspace }}/target/*.war'
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'Production'
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'warehousemanagement'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F58647E9D994AAEB2B66C40BC15B095 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CB88E8591BDA4298995A84A256F5118D }}
           package: '*.war'

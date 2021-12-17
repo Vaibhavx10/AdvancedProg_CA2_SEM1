@@ -66,21 +66,25 @@ public class ProdController {
 			xAxis.add('"' + lproduct.get(i).getProductDate() + '"');
 		}
 
-		model.addAttribute("xAxis", xAxis);
-		model.addAttribute("yAxis", yAxis);
+		
 		
 		
 		
 		//Get Data for Shipment Display
 		List<Shipment> shdata = prodService.getShipmentDetails();
-		
 		ObjectMapper objmap = new ObjectMapper();
+		
 		try {
 			String jsonShipmentInfo = objmap.writeValueAsString(shdata);
+			model.addAttribute("shipmentData", jsonShipmentInfo);
 			System.out.println(jsonShipmentInfo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		model.addAttribute("xAxis", xAxis);
+		model.addAttribute("yAxis", yAxis);
 		
 
 		return "Dashboard";

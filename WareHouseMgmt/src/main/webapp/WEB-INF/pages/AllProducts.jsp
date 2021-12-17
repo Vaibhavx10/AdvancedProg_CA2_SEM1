@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,50 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
+
 </head>
 <body>
+        <!--Nav Bar code-->
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-sm navbar-light">
+                    <a class="navbar-brand" href="#">
+                        <img src="bootstrap-logo.svg" alt="LOGO" width="30" height="24" class="d-inline-block align-top">
+
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
+                        aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="toggleMobileMenu">
+            
+                        <ul class="navbar-nav ms-auto text-center">
+                            <li>
+                                <a class="nav-link" href="./ContactForm.html">Contact Us</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="./AddProductForm.html">Product Form</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#">Item 3</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#">Item 4</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#">Item 5</a>
+                            </li>
+                            <li>
+                                <a class="nav-link" href="#">Item 6</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+
+
+        <!--Finish Nav bar code-->
+
     <div class="container mt-5">
         <h1>Add Product</h1>
         <form class="row g-3">
@@ -48,5 +89,12 @@
         </form>
     </div>
     
+
+
+                
+                <!-- Option 1: Bootstrap Bundle with Popper -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+                    crossorigin="anonymous"></script>
 </body>
 </html>

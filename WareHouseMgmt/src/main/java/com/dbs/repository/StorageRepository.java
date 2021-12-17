@@ -28,6 +28,14 @@ public class StorageRepository {
 	@PersistenceContext
     private EntityManager manager;
 	
+	
+	
+	/**Method : getStorageByType
+	 * @author Pankesh
+	 * Get all storages by type
+	 * parameters : int
+	 * returns : List<StorageDetail>
+	 */	
 	@SuppressWarnings("unchecked")
 	public List<StorageDetail> getStorageByType(int storageTypeId) {
 		List<StorageDetail> obj=null;
@@ -48,6 +56,12 @@ public class StorageRepository {
 	}
 	
 	
+	/**Method : getStorageInventory
+	 * @author Pankesh
+	 * Get storage inventory info
+	 * parameters : int
+	 * returns : List<StorageInventory>
+	 */	
 	@SuppressWarnings("unchecked")
 	public List<StorageInventory> getStorageInventory(int storageId) {
 		List<StorageInventory> obj=null;
@@ -68,6 +82,12 @@ public class StorageRepository {
 	}
 	
 	
+	/**Method : getStorageInfo
+	 * @author Pankesh
+	 * Get storage detail by id
+	 * parameters : int
+	 * returns : List<StorageDetail>
+	 */	
 	@SuppressWarnings("unchecked")
 	public List<StorageDetail> getStorageInfo(int storageId) {
 		List<StorageDetail> obj=null;

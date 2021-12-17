@@ -33,8 +33,16 @@ public class StorageDetailController {
 	 */	
 	@GetMapping("/getStorageDetail")
 	public List<StorageDetail> getStorageByType(int storageTypeID) {
-		return storageService.getStorageByType(storageTypeID);
+		List<StorageDetail> objStorage=null;
+		try {
+			objStorage= storageService.getStorageByType(storageTypeID);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objStorage;
 	}
+	
 	
 	/**API Method : getStorageInventory
 	 * @author Pankesh
@@ -43,9 +51,17 @@ public class StorageDetailController {
 	 * returns : List<StorageInventory>
 	 */	
 	@GetMapping("/getStorageInventory")
-	public List<StorageInventory> getStorageInventory(int storageId) {
-		return storageService.getStorageInventory(storageId);
+	public List<StorageInventory> getStorageInventory(int storageId) { 
+		List<StorageInventory> objInventory=null;
+		try {
+			objInventory= storageService.getStorageInventory(storageId);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objInventory;	
 	}	
+	
 	
 	/**API Method : getStorageInfo
 	 * @author Pankesh
@@ -55,6 +71,13 @@ public class StorageDetailController {
 	 */	
 	@GetMapping("/getStorageInfo")
 	public List<StorageDetail> getStorageInfo(int storageId) {
-		return storageService.getStorageInfo(storageId);
+		List<StorageDetail> objStorageDetail=null;
+		try {
+			objStorageDetail= storageService.getStorageInfo(storageId);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objStorageDetail;
 	}
 }

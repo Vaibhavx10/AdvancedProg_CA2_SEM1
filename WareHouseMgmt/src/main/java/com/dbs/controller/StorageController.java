@@ -21,7 +21,7 @@ public class StorageController {
 	 * @author Pankesh
 	 * Get storage page
 	 * parameters : Model
-	 * returns : pagename
+	 * returns : String
 	 */	
 	@GetMapping("/storage")
 	public String getStorages(Model model) {
@@ -32,7 +32,7 @@ public class StorageController {
 	 * @author Pankesh
 	 * Get storageInventory page
 	 * parameters : Model
-	 * returns : pagename
+	 * returns : String
 	 */	
 	@GetMapping("/storageInventory")
 	public String getStorageInventory(Model model) {

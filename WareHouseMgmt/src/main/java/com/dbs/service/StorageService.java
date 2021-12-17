@@ -37,7 +37,14 @@ public class StorageService {
 	 * returns : List<StorageDetail>
 	 */	
 	public List<StorageDetail> getStorageByType(int storageTypeID) {
-		return storageRepo.getStorageByType(storageTypeID);
+		List<StorageDetail> objStorage=null;
+		try {
+			objStorage= storageRepo.getStorageByType(storageTypeID);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objStorage;
 	}
 	
 
@@ -48,7 +55,14 @@ public class StorageService {
 	 * returns : List<StorageInventory>
 	 */	
 	public List<StorageInventory> getStorageInventory(int storageId){
-		return storageRepo.getStorageInventory(storageId);
+		List<StorageInventory> objInventory=null;
+		try {
+			objInventory= storageRepo.getStorageInventory(storageId);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objInventory;	
 	}
 	
 	
@@ -59,6 +73,13 @@ public class StorageService {
 	 * returns : List<StorageDetail>
 	 */	
 	public List<StorageDetail> getStorageInfo(int storageId){
-		return storageRepo.getStorageInfo(storageId);
+		List<StorageDetail> objStorageDetail=null;
+		try {
+			objStorageDetail= storageRepo.getStorageInfo(storageId);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objStorageDetail;
 	}
 }

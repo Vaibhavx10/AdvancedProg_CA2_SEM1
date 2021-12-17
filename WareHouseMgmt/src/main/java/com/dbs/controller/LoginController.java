@@ -17,8 +17,9 @@ import com.dbs.service.LoginService;
 
 /**
  * @author Pankesh
- *
+ * RestConrtoller for Login operations
  */
+
 
 @RestController
 public class LoginController {
@@ -26,15 +27,25 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
+	
+	/**API Method : addWarehouseUser
+	 * @author Pankesh
+	 * Add warehouse user
+	 * parameters : WarehouseUser
+	 * returns : WarehouseUser
+	 */	
 	@PostMapping("/addUser")
 	public WarehouseUser addWarehouseUser(@RequestBody WarehouseUser user) {
-		System.out.println(">>> addUser");
-		System.out.println(user);
 		return loginService.addWarehouseUser(user);
 	}
 	
 	
-	
+	/**API Method : loginWarehouseUser
+	 * @author Pankesh
+	 * login WarehouseUser
+	 * parameters : String,String
+	 * returns : WarehouseUser
+	 */	
 	@GetMapping("/loginUser")
 	public WarehouseUser loginWarehouseUser(String userName,String password) {
 		return loginService.loginWarehouseUser(userName,password);

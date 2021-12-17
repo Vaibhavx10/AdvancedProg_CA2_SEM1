@@ -32,4 +32,11 @@ public class LoginController {
 		System.out.println(user);
 		return loginService.addWarehouseUser(user);
 	}
+	
+	
+	
+	@GetMapping("/loginUser")
+	public WarehouseUser loginWarehouseUser(String userName,String password) {
+		return loginService.loginWarehouseUser(userName,password);
+	}
 }

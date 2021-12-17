@@ -8,8 +8,20 @@ var UserRole;
  * Initializer function
  */
 function init() {
-	renderLoginModal()
 
+	checkUserSession()
+
+}
+
+
+function checkUserSession() {
+	var userData = JSON.parse(sessionStorage.getItem("userData"));
+	if (userData == null) {
+		renderLoginModal()
+	}
+	else {
+		window.location.href = `../`;
+	}
 }
 
 
@@ -26,6 +38,30 @@ function renderLoginModal() {
 
 
 function validateLogin() {
+
+	let userName = document.getElementById('userName').value;
+	let userPassword = document.getElementById('userPassword').value;
+
+	var WarehouseUser = {
+		userName: userName,
+		password: userPassword
+	}
+
+	$.ajax({
+		url: "/loginUser",
+		type: "GET",
+
+		data: WarehouseUser,
+		success: function(response) {
+			console.log(response)
+			const userDetails = { "WarehouseUserId": response['id'], "UserName": response['userName'], "UserRole": response['userRole'] };
+			sessionStorage.setItem("userData", JSON.stringify(userDetails));
+			checkUserSession()
+		},
+		error: function(xhr) {
+			console.log(xhr)
+		}
+	});
 
 }
 
@@ -63,7 +99,7 @@ function createUser() {
 		data: json,
 		success: function(response) {
 			console.log(response)
-
+			checkUserSession()
 		},
 		error: function(xhr) {
 			console.log(xhr)

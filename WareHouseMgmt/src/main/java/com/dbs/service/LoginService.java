@@ -22,4 +22,7 @@ public class LoginService {
 		return loginReposiotry.save(user);
 	}
 	
+	public WarehouseUser loginWarehouseUser(String userName,String password) {
+		return loginReposiotry.findByLoginDetails(userName, password);
+	}
 }

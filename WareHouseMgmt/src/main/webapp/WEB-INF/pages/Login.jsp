@@ -20,29 +20,27 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="loginModalLabel">Login</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+<!--         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> -->
       </div>
       <div class="modal-body">
         
-        <form onsubmit="validateLogin()">
+        <form>
           <div class="form-group">
             <label for="userName" class="col-form-label">Username:</label>
-            <input type="text" class="form-control" id="userName">
+            <input type="text" required class="form-control" id="userName">
           </div>
           <div class="userPassword">
             <label for="userPassword" class="col-form-label">Password:</label>
-            <input type="password" class="form-control" id="userPassword">
+            <input type="password" required class="form-control" id="userPassword">
           </div>
-           <button type="submit" class="btn btn-primary">Login</button>
-           <button type="button" data-bs-target="#registerModal" data-bs-toggle="modal" class="btn btn-primary">Create User</button>
         </form>
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+           <button type="button" class="btn btn-primary" onclick="validateLogin()">Login</button>
+           <button type="button" data-bs-target="#registerModal" data-bs-toggle="modal" class="btn btn-primary">Create User</button>
       </div>
     </div>
   </div>
@@ -85,8 +83,8 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="createUser()">Save changes</button>
+        <button type="button"  class="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal">Back to Login</button>
+        <button type="button" class="btn btn-primary" onclick="createUser()">Create User</button>
       </div>
     </div>
   </div>

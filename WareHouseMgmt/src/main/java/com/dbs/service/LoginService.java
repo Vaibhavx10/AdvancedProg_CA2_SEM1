@@ -19,10 +19,24 @@ public class LoginService {
 	private LoginRepository loginReposiotry;
 	
 	public WarehouseUser addWarehouseUser(WarehouseUser user) {
-		return loginReposiotry.save(user);
+		WarehouseUser objWarehouseUser=null;
+		try {
+			objWarehouseUser= loginReposiotry.save(user);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objWarehouseUser;	
 	}
 	
 	public WarehouseUser loginWarehouseUser(String userName,String password) {
-		return loginReposiotry.findByLoginDetails(userName, password);
+		WarehouseUser objWarehouseUser=null;
+		try {
+			objWarehouseUser= loginReposiotry.findByLoginDetails(userName, password);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objWarehouseUser;	
 	}
 }

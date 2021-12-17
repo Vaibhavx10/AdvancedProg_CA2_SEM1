@@ -3,6 +3,8 @@
  */
 package com.dbs.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.dbs.entity.StorageDetail;
 import com.dbs.entity.WarehouseUser;
 import com.dbs.service.LoginService;
 
@@ -36,7 +38,14 @@ public class LoginController {
 	 */	
 	@PostMapping("/addUser")
 	public WarehouseUser addWarehouseUser(@RequestBody WarehouseUser user) {
-		return loginService.addWarehouseUser(user);
+		WarehouseUser objWarehouseUser=null;
+		try {
+			objWarehouseUser= loginService.addWarehouseUser(user);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objWarehouseUser;		
 	}
 	
 	
@@ -47,7 +56,14 @@ public class LoginController {
 	 * returns : WarehouseUser
 	 */	
 	@GetMapping("/loginUser")
-	public WarehouseUser loginWarehouseUser(String userName,String password) {
-		return loginService.loginWarehouseUser(userName,password);
+	public WarehouseUser loginWarehouseUser(String userName,String password) {	
+		WarehouseUser objWarehouseUser=null;
+		try {
+			objWarehouseUser= loginService.loginWarehouseUser(userName,password);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objWarehouseUser;	
 	}
 }

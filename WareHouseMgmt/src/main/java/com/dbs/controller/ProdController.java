@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dbs.entity.Product;
+import com.dbs.entity.Shipment;
 import com.dbs.service.ProdService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 public class ProdController {
@@ -50,21 +52,47 @@ public class ProdController {
 
 	@GetMapping("/getAllProducts")
 	public String getAllProducts(Model model) {
-		List<Product> lproduct = prodService.getAllProducts();
-		
-		System.out.println("lproduct >> "+lproduct);
-		
+		List<Product> lproduct = prodService.getAllProductsPerDate();
+
+		System.out.println(" lproduct :: " + lproduct);
+
+		System.out.println("lproduct >> " + lproduct);
+
 		ArrayList<String> xAxis = new ArrayList<String>();
-		ArrayList<String> yAxis = new ArrayList<String>();
-		
+		ArrayList<Long> yAxis = new ArrayList<Long>();
+
 		for (int i = 0; i < lproduct.size(); i++) {
-			yAxis.add('"'+lproduct.get(i).getProductDate()+'"');
-			xAxis.add('"'+lproduct.get(i).getProductName()+'"');	
+			yAxis.add(lproduct.get(i).getProductPerDay());
+			xAxis.add('"' + lproduct.get(i).getProductDate() + '"');
 		}
+
+		
+		
+		
+		
+		//Get Data for Shipment Display
+		List<Shipment> shdata = prodService.getShipmentDetails();
+		ObjectMapper objmap = new ObjectMapper();
+		
+		try {
+			String jsonShipmentInfo = objmap.writeValueAsString(shdata);
+			model.addAttribute("shipmentData", jsonShipmentInfo);
+			System.out.println(jsonShipmentInfo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		model.addAttribute("xAxis", xAxis);
 		model.addAttribute("yAxis", yAxis);
 		
+
 		return "Dashboard";
+	}
+	
+	
+	@GetMapping("/getShipmentInfo")
+	public List<Shipment> getShipmentInfo() {
+		return prodService.getShipmentDetails();
 	}
 }

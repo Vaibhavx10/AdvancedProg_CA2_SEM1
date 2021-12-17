@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dbs.entity.Product;
+import com.dbs.entity.Shipment;
 import com.dbs.service.ProdService;
 
 @Controller
@@ -51,23 +52,27 @@ public class ProdController {
 	@GetMapping("/getAllProducts")
 	public String getAllProducts(Model model) {
 		List<Product> lproduct = prodService.getAllProductsPerDate();
+
+		System.out.println(" lproduct :: " + lproduct);
+
+		System.out.println("lproduct >> " + lproduct);
+
+		ArrayList<String> xAxis = new ArrayList<String>();
+		ArrayList<Long> yAxis = new ArrayList<Long>();
+
+		for (int i = 0; i < lproduct.size(); i++) {
+			yAxis.add(lproduct.get(i).getProductPerDay());
+			xAxis.add('"' + lproduct.get(i).getProductDate() + '"');
+		}
+
+		model.addAttribute("xAxis", xAxis);
+		model.addAttribute("yAxis", yAxis);
 		
 		
-		System.out.println(" lproduct :: "+lproduct);
 		
-		
-		  System.out.println("lproduct >> "+lproduct);
-		  
-		  ArrayList<String> xAxis = new ArrayList<String>(); 
-		  ArrayList<Long> yAxis = new ArrayList<Long>();
-		  
-		  for (int i = 0; i < lproduct.size(); i++) {
-		  yAxis.add(lproduct.get(i).getProductPerDay());
-		  xAxis.add('"'+lproduct.get(i).getProductDate()+'"'); }
-		  
-		  model.addAttribute("xAxis", xAxis); model.addAttribute("yAxis", yAxis);
-		 
-		
+		//Get Data for Shipment Display
+		List<Shipment> shdata = prodService.getShipmentDetails();
+
 		return "Dashboard";
 	}
 	

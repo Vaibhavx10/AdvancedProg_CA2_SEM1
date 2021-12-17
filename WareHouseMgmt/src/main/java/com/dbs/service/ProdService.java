@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dbs.entity.Product;
+import com.dbs.entity.Shipment;
 import com.dbs.repository.ProdctReposiotry;
 import com.dbs.repository.ShipmentRepo;
 
@@ -58,9 +59,8 @@ public class ProdService {
 		
 	}
 	
-	
-	
-	public void getShipmentDetails() {
+	public List<Shipment> getShipmentDetails() {
 		System.out.println("shipmentRepo :: "+shipmentRepo.findAll());
+		return shipmentRepo.findAll();
 	}
 }

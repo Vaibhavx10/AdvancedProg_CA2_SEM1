@@ -63,11 +63,11 @@
         <form onsubmit="validateLogin()">
           <div class="form-group">
             <label for="registerUserName" class="col-form-label">Username:</label>
-            <input type="text" class="form-control" id="registerUserName">
+            <input type="text" required class="form-control" id="registerUserName">
           
           <div class="userPassword">
             <label for="registerUserPassword" class="col-form-label">Password:</label>
-            <input type="password" class="form-control" id="registerUserPassword">
+            <input type="password" required class="form-control" id="registerUserPassword">
           </div>
           
           <div class="dropdown">

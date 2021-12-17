@@ -6,12 +6,13 @@ package com.dbs.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 /**
  * @author Pankesh
  *
  */
 
-@Controller
+@RestController
 public class LoginController {
 
 

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,6 +32,7 @@ public class Product {
 	private Integer QuantityPerUnit;
 	private Integer UnitPrice;
 	private String ProductDate;
+	@Transient
 	private Long ProductPerDay;
 	
 	
@@ -39,7 +41,9 @@ public class Product {
 		this.ProductDate = productDate;
 		this.ProductPerDay = productPerDay;
 	}
+	
 
+	
 	public Integer getProductId() {
 		return ProductId;
 	}

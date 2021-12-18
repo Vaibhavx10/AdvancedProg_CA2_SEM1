@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dbs.entity.Product;
+import com.dbs.entity.ProductCategory;
 import com.dbs.entity.Shipment;
 import com.dbs.repository.ProdctReposiotry;
+import com.dbs.repository.ProductCategoryRepo;
 import com.dbs.repository.ShipmentRepo;
 
 @Service
@@ -21,13 +23,27 @@ public class ProdService {
 	@Autowired
 	private ShipmentRepo shipmentRepo;
 	
+	@Autowired
+	private ProductCategoryRepo productCategoryRepo;
 	
-	public Product saveStuff(Product product) {
-		return prodctReposiotry.save(product);
+	public void saveStuff(Product product) {
+		prodctReposiotry.save(product);
 	}
 	
 	public List<Product> getAllProducts() {
 		List<Product> prdlist = prodctReposiotry.findAll(); 
+		return prdlist;
+	}
+	
+	public List<ProductCategory> getAllProductCategory() {
+		List<ProductCategory> prdlist = productCategoryRepo.findAll(); 
+		return prdlist;
+	}
+	
+	
+	//Not used as of now
+	public List<String> getProductNameAndStorageTypeID() {
+		List<String> prdlist = productCategoryRepo.getProductName(); 
 		return prdlist;
 	}
 	
@@ -63,4 +79,7 @@ public class ProdService {
 		System.out.println("shipmentRepo :: "+shipmentRepo.findAll());
 		return shipmentRepo.findAll();
 	}
+	
+	
+	
 }

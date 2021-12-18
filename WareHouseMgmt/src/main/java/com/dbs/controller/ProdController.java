@@ -10,11 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dbs.entity.Product;
+import com.dbs.entity.ProductCategory;
 import com.dbs.entity.Shipment;
 import com.dbs.service.ProdService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,10 +26,34 @@ public class ProdController {
 	@Autowired
 	ProdService prodService;
 
-	@PostMapping("/addProdct")
-	public Product addProdct(@RequestBody Product product) {
-		return prodService.saveStuff(product);
+	/*
+	 * @PostMapping("/addProdct") public Product addProdct(@RequestBody Product
+	 * product) { return prodService.saveStuff(product); }
+	 */
+	
+	@GetMapping("/addProduct")
+	public String addProdct(Model model) {
+		
+		
+		try {
+			//getProduct details from Product Tables
+			List<ProductCategory> prd = prodService.getAllProductCategory();
+			System.out.println("prd "+prd);
+			
+			//Used to convert entity to JSON
+			ObjectMapper prdMapper = new ObjectMapper();
+			String jsonProductInfo = prdMapper.writeValueAsString(prd);
+			System.out.println("AllprdInfo :: "+jsonProductInfo);
+			model.addAttribute("allPrduct",jsonProductInfo);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+			
+		return "AddProducts";
 	}
+	
+	
 
 	@GetMapping("/getProduct/{id}")
 	public Product getProdct(@PathVariable int id) {

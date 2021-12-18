@@ -1,0 +1,33 @@
+body {
+  background-color: grey !important;
+}
+
+.nav-link {
+  color: white !important;
+  font-size: 18px !important;
+}
+
+.form-label {
+  color: black !important;
+}
+
+
+.navbar {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.btn-outline-dark {
+  border: none !important;
+  font-size: 20px !important;
+}
+
+.errorChecker{
+	visibility: hidden;
+    background-color: black;
+    color: red;
+}
+
+.hideIt{
+	visibility: hidden;	
+}

@@ -14,5 +14,7 @@ public interface ProdctReposiotry extends JpaRepository<Product, Integer> {
 	@Query("select new com.dbs.entity.Product(ProductDate,COUNT(ProductID) as ProductPerDay) from Product group by ProductDate")
 	List<Product> getProductsAsPerDate();
 	
+	
+	
 
 }

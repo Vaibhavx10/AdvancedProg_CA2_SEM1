@@ -54,7 +54,7 @@ public class OrderService {
 					Object[] p = objProd.stream()
 							.filter(x -> x.getProductId().toString().equals(prod)).toArray();
 							
-					
+					 
 					objPD.setProduct((Product)p[0]);
 					
 					Integer Quantity = ((Long) arrOrderDetail.getJSONObject(i).get("Quantity")).intValue();

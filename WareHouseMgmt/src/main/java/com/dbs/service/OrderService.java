@@ -51,10 +51,11 @@ public class OrderService {
 
 					PurchaseDetail objPD= new PurchaseDetail();
 					objPD.setOrderId(objectOrder.getOrderId());
-					Product p = objProd.stream()
-							.filter(x -> x.getProductId().toString().equals(prod)).toList()
-							.get(0);
-					objPD.setProduct(p);
+					Object[] p = objProd.stream()
+							.filter(x -> x.getProductId().toString().equals(prod)).toArray();
+							
+					
+					objPD.setProduct((Product)p[0]);
 					
 					Integer Quantity = ((Long) arrOrderDetail.getJSONObject(i).get("Quantity")).intValue();
 					objPD.setQuantity(Quantity);

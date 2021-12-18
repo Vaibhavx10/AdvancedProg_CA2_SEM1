@@ -3,26 +3,22 @@ package com.dbs.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name = "Product")
 public class Product {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer ProductId;
 	@Column(name = "ProductName")
 	private String productName;
@@ -37,6 +33,10 @@ public class Product {
 	private Long ProductPerDay;
 	
 	
+	
+
+	public Product() {
+	}
 
 	public Product(Integer productId, String productName, Integer storageTypeId) {
 		this.ProductId = productId;

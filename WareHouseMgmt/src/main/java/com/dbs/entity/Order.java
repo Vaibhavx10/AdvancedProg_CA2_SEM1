@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -22,11 +23,13 @@ import lombok.NoArgsConstructor;
 @Table(name = "[Order]")
 public class Order {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer OrderId;
 	private String OrderDate;
 	private String PurchaseDetails;
 	
+	@Transient
+	private Integer CustomerId;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "CustomerId")
@@ -83,7 +86,19 @@ public class Order {
 	public void setOrderDate(String orderDate) {
 		OrderDate = orderDate;
 	}
+	/**
+	 * @return the customerId
+	 */
+	public Integer getCustomerId() {
+		return CustomerId;
+	}
+	/**
+	 * @param customerId the customerId to set
+	 */
+	public void setCustomerId(Integer customerId) {
+		CustomerId = customerId;
+	}
 
-
+	
 
 }

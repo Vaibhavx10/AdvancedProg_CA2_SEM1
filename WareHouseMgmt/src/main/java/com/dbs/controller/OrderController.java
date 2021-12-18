@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbs.entity.Order;
@@ -58,5 +60,24 @@ public class OrderController {
 			e.printStackTrace();
 		}
 		return objProduct;
+	}
+	
+	
+	/**API Method : addOrder
+	 * @author Pankesh
+	 * Add warehouse user
+	 * parameters : WarehouseUser
+	 * returns : WarehouseUser
+	 */	
+	@PostMapping("/addOrder")
+	public Order addOrder(@RequestBody Order objOrder) {
+		Order objO=null;
+		try {
+			objO= orderService.addOrder(objOrder);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return objO;
 	}
 }

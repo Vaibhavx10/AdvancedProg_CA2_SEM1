@@ -4,6 +4,8 @@
 
 
 var OList = [];
+var Products=[];
+var selectedProductList=[];
 
 function init() {
 	getOrdersList()
@@ -66,7 +68,7 @@ function getProducts() {
 		type: "GET",
 		success: function(response) {
 			console.log(response)
-			
+			Products=response;
 			let select =document.getElementById('sl_products')
 			
 			for(let i=0;i<response.length; i++){
@@ -113,23 +115,13 @@ function productList(orderId) {
 }
 
 
-function generateOrderXML() {
-	var ProductList = [{
-		ProductId: 40,
-		Quantity: 5
-	}, {
-		ProductId: 43,
-		Quantity: 8
-	}]
+function generateOrderXML(ProductList) {
 
 	var OrderDetail = ""
 
 	for (let i = 0; i < ProductList.length; i++) {
 
-		let order = `<OrderDetail>
-		<ProductId>${ProductList[i].ProductId}</ProductId>
-		<Quantity>${ProductList[i].Quantity}</Quantity>
-		</OrderDetail>`
+		let order = `<OrderDetail><ProductId>${ProductList[i].ProductId}</ProductId><Quantity>${ProductList[i].Quantity}</Quantity></OrderDetail>`
 
 		OrderDetail = OrderDetail + order
 	}
@@ -137,9 +129,75 @@ function generateOrderXML() {
 	var PurchaseDetail = `<PurchaseDetail>${OrderDetail}</PurchaseDetail>`
 	
 	console.log(PurchaseDetail);
+	return PurchaseDetail;
 }
 
 function addToBucket(){
 
+  var selectList = document.getElementById("sl_products");
+  var index = selectList.selectedIndex;
+  var options = selectList.options;
+  var selectedOptions = selectList.selectedOptions
+
+	var domList	=	document.getElementById('ul_selectedProducts');
+ for(let i=0; i<selectedOptions.length;i++){
+	var ProductId=selectedOptions[i].value;
+	var selectedProduct = Products.filter(x => x.productId == ProductId)[0];
+	
+	if(!selectedProductList.includes(selectedProduct)){
+	selectedProductList.push(selectedProduct)
+
+	domList.innerHTML = domList.innerHTML + `<li class="list-group-item">
+										<div class="row">
+											<div class="col-9">${selectedProduct.productName}</div><div class="col-3"><input type="number" id="q_${selectedProduct.productId}"></div>
+										 </div>
+										</li>`
+	}
 
 }
+
+}
+
+
+function addOrder(){
+
+	let prodQuant=[]
+	
+	selectedProductList.forEach(x=>{
+	let q = document.getElementById("q_"+`${x.productId}`).value;
+	let p={
+			ProductId: x.productId,
+			Quantity : q
+			}
+		prodQuant.push(p)	
+	
+	});
+	
+	let orderxml=generateOrderXML(prodQuant);
+	
+	
+
+	var Order = {
+		customerId: 1,
+		purchaseDetails: orderxml
+	}
+
+	var json = JSON.stringify(Order);
+
+	$.ajax({
+		url: "/addOrder",
+		type: "POST",
+		contentType: "application/json; charset=utf-8",
+		dataType: "json",
+		data: json,
+		success: function(response) {
+			console.log(response)
+		},
+		error: function(xhr) {
+			console.log(xhr)
+		}
+	});
+
+}
+
+

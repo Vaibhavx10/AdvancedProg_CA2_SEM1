@@ -76,21 +76,18 @@
 							</select>
 							</div>
 							<div class="col-lg-1" style="display: table-cell;  vertical-align: middle;  text-align: center;">
-							<button class="btn btn-secondary btn-sm" style="display: inline-block;">==>></button>
+							<button class="btn btn-secondary btn-sm"  onclick="addToBucket()" style="display: inline-block;">==>></button>
 							</div>
-							<div class="col-lg-6" style="width: 40%;height: 40%;overflow: scroll;">
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">An item</li>
-										<li class="list-group-item">A second item</li>
-										<li class="list-group-item">A third item</li>
-										<li class="list-group-item">A fourth item</li>
-										<li class="list-group-item">And a fifth one</li>
+							<div class="col-lg-6" style="width: 40%;height: 40%;overflow: scroll; min-height:150px; max-height:300px">
+									<ul class="list-group list-group-flush" id="ul_selectedProducts" style="text-align:justify">
+
 									</ul>
 
 								</div>
 							</div>
 
-
+						<button class="btn btn-primary btn-lg"
+								onclick="addOrder()">+ Confirm Order</button>
 						</div>
 					</div>
 <!-- 					<div class="col-lg-2" id="container three">

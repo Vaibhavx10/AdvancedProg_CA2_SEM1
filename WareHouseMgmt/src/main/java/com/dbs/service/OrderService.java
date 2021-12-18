@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.dbs.entity.Order;
 import com.dbs.entity.Product;
 import com.dbs.entity.PurchaseDetail;
+import com.dbs.entity.WarehouseUser;
 import com.dbs.repository.*;
 import org.json.JSONObject;
 import org.json.XML;
@@ -84,4 +85,16 @@ public class OrderService {
 		return objProd;
 	}
 	
+	
+	
+	public Order addOrder(Order objOrder) {
+		Order objO=null;
+		try {
+			objO = orderReposiotry.save(objOrder);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return objO;
+	}
 }

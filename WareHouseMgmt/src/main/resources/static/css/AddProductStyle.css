@@ -21,3 +21,9 @@ body {
   border: none !important;
   font-size: 20px !important;
 }
+
+.errorChecker{
+	visibility: hidden;
+    background-color: black;
+    color: red;
+}

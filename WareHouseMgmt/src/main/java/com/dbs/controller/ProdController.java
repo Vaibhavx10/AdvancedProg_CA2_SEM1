@@ -11,8 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dbs.entity.Product;
 import com.dbs.entity.Shipment;
@@ -51,8 +51,10 @@ public class ProdController {
 			e.printStackTrace();
 		}
 			
-		return "AllProducts";
+		return "AddProducts";
 	}
+	
+	
 
 	@GetMapping("/getProduct/{id}")
 	public Product getProdct(@PathVariable int id) {

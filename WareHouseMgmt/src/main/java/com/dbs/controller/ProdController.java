@@ -10,11 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.dbs.entity.Product;
+import com.dbs.entity.ProductCategory;
 import com.dbs.entity.Shipment;
 import com.dbs.service.ProdService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -38,7 +37,7 @@ public class ProdController {
 		
 		try {
 			//getProduct details from Product Tables
-			List<String> prd = prodService.getProductNameAndStorageTypeID();
+			List<ProductCategory> prd = prodService.getAllProductCategory();
 			System.out.println("prd "+prd);
 			
 			//Used to convert entity to JSON

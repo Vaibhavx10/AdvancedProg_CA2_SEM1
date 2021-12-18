@@ -27,3 +27,7 @@ body {
     background-color: black;
     color: red;
 }
+
+.hideIt{
+	visibility: hidden;	
+}

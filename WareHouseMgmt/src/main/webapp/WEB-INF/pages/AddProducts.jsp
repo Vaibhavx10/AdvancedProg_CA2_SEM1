@@ -65,6 +65,12 @@
 					aria-expanded="false">Product Category Name</button>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dd_li_prd_categoryname">
 				</ul>
+				<h5 class="hideIt" id="setDropDownIdhere" >
+                        setDropDownIdhere
+                    </h5>
+				<h5 class="errorChecker" id="val_dropdownMenuButton1" >
+                        Product Category should be added
+                    </h5>
 			</div>
             
             <div class="dropdown col-md-6">
@@ -76,6 +82,9 @@
 					<li><a class="dropdown-item" href="#" onclick="setStorageType('2')">2</a></li>
 					<li><a class="dropdown-item" href="#" onclick="setStorageType('3')">3</a></li>
 				</ul>
+				<h5 class="errorChecker" id="val_dropdownMenuButton2" >
+                        Quantity should be added
+                    </h5>
 			</div>
 			
 			
@@ -117,6 +126,10 @@
         </div>
     </div>
     <!--Product Form Ends-->
+    
+	<div class="container" id="hiddenContainer">
+		<h6 id="dd_ProductCategoryID"></h6>
+	</div>    
 
     <!--Footer Code Starts-->
     <footer class="bg-dark text-white pt-5 pb-4 fixed-bottom">

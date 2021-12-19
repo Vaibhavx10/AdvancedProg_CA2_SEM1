@@ -2,7 +2,11 @@
  * 
  */
 
+
+/**Global Variables*/
 var UserRole;
+
+
 
 /**
  * Initializer function
@@ -13,7 +17,10 @@ function init() {
 
 }
 
-
+/**
+*Function to check user session
+* @author Pankesh
+*/
 function checkUserSession() {
 	var userData = JSON.parse(sessionStorage.getItem("userData"));
 	if (userData == null) {
@@ -24,7 +31,9 @@ function checkUserSession() {
 	}
 }
 
-
+/**Function to render login modal pop up
+* @author Pankesh
+*/
 function renderLoginModal() {
 
 	var elem = `<button type="button" id="btn_Modal" style="display:none" class="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal"></button>`;
@@ -36,7 +45,9 @@ function renderLoginModal() {
 
 
 
-
+/**Function to login user using ajax call
+* @author Pankesh
+*/
 function validateLogin() {
 
 	let userName = document.getElementById('userName').value;
@@ -44,13 +55,13 @@ function validateLogin() {
 	
 	var Regex = /^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/
 	
-	
+	/**Validation for username*/
 	if(userName=="" || userName==null || !Regex.test(userName)){
 	alert("Please fill valid UserName!")
 	return
 	}
 
-
+	/**validation for password*/
 	if(userPassword=="" || userPassword==null || !Regex.test(userPassword)){
 	alert("Please fill valid Password!")
 	return
@@ -82,6 +93,11 @@ function validateLogin() {
 
 }
 
+
+
+/**Function to assign user role on drop down change
+* @author Pankesh
+*/
 function selectUserRole(role) {
 	UserRole = role;
 	if (role == 1) {
@@ -94,7 +110,9 @@ function selectUserRole(role) {
 
 }
 
-
+/**Function to create new user
+* @author Pankesh
+*/
 function createUser() {
 
 	let userName = document.getElementById('registerUserName').value;
@@ -103,18 +121,19 @@ function createUser() {
 	
 	var Regex = /^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/
 	
-	
+	/**validation for user name*/
 	if(userName=="" || userName==null || !Regex.test(userName)){
 	alert("Please fill valid User Name!")
 	return
 	}
 
-
+	/**validation for password*/
 	if(userPassword=="" || userPassword==null || !Regex.test(userPassword)){
 	alert("Please fill valid Password!")
 	return
 	}
 	
+	/**validation for userrole*/
 	if(!(UserRole==1 || UserRole==2 ||UserRole=="1" || UserRole=="2")){
 	alert("Please select User Role!")
 	return

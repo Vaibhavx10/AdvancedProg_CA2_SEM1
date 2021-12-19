@@ -2,17 +2,18 @@
  * 
  */
 
-
+/**Global Variables*/
 var OList = [];
-var Products=[];
-var selectedProductList=[];
-var customer=null;
-var customers={
-	"1":	"Tesco",
-	"2":	"Lidl",
-	"3":	"Dealz"
+var Products = [];
+var selectedProductList = [];
+var customer = null;
+var customers = {
+	"1": "Tesco",
+	"2": "Lidl",
+	"3": "Dealz"
 }
 
+/** Initializer function*/
 function init() {
 	getOrdersList()
 	getProducts()
@@ -21,6 +22,9 @@ function init() {
 
 }
 
+/**Function to check user session
+* @author Pankesh
+*/
 function checkUserSession() {
 	var userData = JSON.parse(sessionStorage.getItem("userData"));
 	if (userData == null) {
@@ -30,22 +34,33 @@ function checkUserSession() {
 }
 
 
-function getCustomer(){
-	
-	var dropdown =  document.getElementById("ul_customer");
-	
-	Object.keys(customers).forEach(function (item) {
-	  let data=`<li><a class="dropdown-item" onclick="getStorageDetails(${item})">${customers[item]}</a></li>`;
-		dropdown.innerHTML=dropdown.innerHTML	+	data	;
+/**Function to get customer and bind to drop down options
+* @author Pankesh
+*/
+function getCustomer() {
+
+	var dropdown = document.getElementById("ul_customer");
+
+	Object.keys(customers).forEach(function(item) {
+		let data = `<li><a class="dropdown-item" onclick="getStorageDetails(${item})">${customers[item]}</a></li>`;
+		dropdown.innerHTML = dropdown.innerHTML + data;
 	});
 }
 
-function getStorageDetails (customerId){
+
+/**Function to assign customer value on drop down change
+* @author Pankesh
+*/
+function getStorageDetails(customerId) {
 
 	document.getElementById("dd_customer").innerHTML = customers[customerId];
-	customer=customerId;
+	customer = customerId;
 }
 
+
+/**Function to get list of orders and bind to datatable
+* @author Pankesh
+*/
 function getOrdersList() {
 
 	$.ajax({
@@ -61,7 +76,7 @@ function getOrdersList() {
 					1: item.orderDate,
 					2: item.customerDetail.customerName,
 					3: item.customerDetail.customerContact,
-					4: `<button type="button" class="btn btn-outline-secondary btn-sm" onclick="productList(${item.orderId})"	 data-bs-target="#md_ProductList" data-bs-toggle="modal">View Products</button>`,
+					4: `<button type="button" class="btn btn-outline-secondary btn-sm" onclick="productList(${item.orderId})" data-bs-target="#md_ProductList" data-bs-toggle="modal">View Products</button>`,
 				}
 
 
@@ -94,6 +109,9 @@ function getOrdersList() {
 
 
 
+/**Function to get products list for add order bucket and binding
+* @author Pankesh
+*/
 function getProducts() {
 
 	$.ajax({
@@ -101,13 +119,13 @@ function getProducts() {
 		type: "GET",
 		success: function(response) {
 			console.log(response)
-			Products=response;
-			let select =document.getElementById('sl_products')
-			
-			for(let i=0;i<response.length; i++){
-			
-			select.innerHTML =select.innerHTML + `<option value="${response[i].productId}">${response[i].productName}</option>`
-			
+			Products = response;
+			let select = document.getElementById('sl_products')
+
+			for (let i = 0; i < response.length; i++) {
+
+				select.innerHTML = select.innerHTML + `<option value="${response[i].productId}">${response[i].productName}</option>`
+
 			}
 
 
@@ -121,6 +139,9 @@ function getProducts() {
 
 
 
+/**Function to get products according to orderid, when click on view products
+* @author Pankesh
+*/
 function productList(orderId) {
 
 	var plist = OList.filter(x => x.orderId == orderId)[0].productList;
@@ -148,6 +169,10 @@ function productList(orderId) {
 }
 
 
+
+/**Function to generate xml string for purchase details
+* @author Pankesh
+*/
 function generateOrderXML(ProductList) {
 
 	var OrderDetail = ""
@@ -160,68 +185,78 @@ function generateOrderXML(ProductList) {
 	}
 
 	var PurchaseDetail = `<PurchaseDetail>${OrderDetail}</PurchaseDetail>`
-	
+
 	console.log(PurchaseDetail);
 	return PurchaseDetail;
 }
 
-function addToBucket(){
 
-  var selectList = document.getElementById("sl_products");
-  var index = selectList.selectedIndex;
-  var options = selectList.options;
-  var selectedOptions = selectList.selectedOptions
 
-	var domList	=	document.getElementById('ul_selectedProducts');
- for(let i=0; i<selectedOptions.length;i++){
-	var ProductId=selectedOptions[i].value;
-	var selectedProduct = Products.filter(x => x.productId == ProductId)[0];
-	
-	if(!selectedProductList.includes(selectedProduct)){
-	selectedProductList.push(selectedProduct)
+/**Function to add elements to purchase bucket
+* @author Pankesh
+*/
+function addToBucket() {
 
-	domList.innerHTML = domList.innerHTML + `<li class="list-group-item">
+	var selectList = document.getElementById("sl_products");
+	var index = selectList.selectedIndex;
+	var options = selectList.options;
+	var selectedOptions = selectList.selectedOptions
+
+	var domList = document.getElementById('ul_selectedProducts');
+	for (let i = 0; i < selectedOptions.length; i++) {
+		var ProductId = selectedOptions[i].value;
+		var selectedProduct = Products.filter(x => x.productId == ProductId)[0];
+
+		if (!selectedProductList.includes(selectedProduct)) {
+			selectedProductList.push(selectedProduct)
+
+			domList.innerHTML = domList.innerHTML + `<li class="list-group-item">
 										<div class="row">
 											<div class="col-8">${selectedProduct.productName}</div><div class="col-4"><input type="number" id="q_${selectedProduct.productId}"></div>
 										 </div>
 										</li>`
+		}
+
 	}
 
 }
 
-}
+
+/**Function to add order by ajax call
+* @author Pankesh
+*/
+function addOrder() {
 
 
-function addOrder(){
-
-	if(selectedProductList.length <=0 || customer==null){
-	alert("Invalid! Please fill all details!")
-	return	
-	}
-
-	
-
-	let prodQuant=[]
-	
-	selectedProductList.forEach(x=>{
-	let q = document.getElementById("q_"+`${x.productId}`).value;
-	
-	if(q=="" || q==null){
+	/**Validation for Product list*/
+	if (selectedProductList.length <= 0 || customer == null) {
 		alert("Invalid! Please fill all details!")
-		return	
+		return
 	}
-	
-	let p={
+
+	let prodQuant = []
+
+	selectedProductList.forEach(x => {
+		let q = document.getElementById("q_" + `${x.productId}`).value;
+
+		/**Validation for Product quantity*/
+		if (q == "" || q == null) {
+			alert("Invalid! Please fill all details!")
+			return
+		}
+
+		let p = {
 			ProductId: x.productId,
-			Quantity : q
-			}
-		prodQuant.push(p)	
-	
+			Quantity: q
+		}
+		prodQuant.push(p)
+
 	});
-	
-	let orderxml=generateOrderXML(prodQuant);
-	
-	
+
+	/** Generates xml string of purchase details*/
+	let orderxml = generateOrderXML(prodQuant);
+
+
 
 	var Order = {
 		customerId: customer,

@@ -28,16 +28,16 @@ var shipmentJSONData = ${shipmentData};
 <body onload="initialize(xAxisVal,yAxisVal)">
 
 	<!--navigation bar-->
-	<nav class="navbar navbar-expand-sm navbar-light bg-light">
+	<!-- <nav class="navbar navbar-expand-sm navbar-light bg-light">
 		<div class="container-fluid">
 			<span class="navbar-brand mb-0 h1">WareHouse Management  System</span>
-			<!--we can add logo in img-->
+			we can add logo in img
 			<img class="d-inline-block align-top" src="" width="" height="">
-			<!--ITS A MENU BUTTON AND WHEN A SCREEN REDUCES TO SMALL OR MOBILE SIZE(BREAK POINT) ALL THE ITEMS ARE AUTOMATICAALY LISTED UNDER THE MENU-->
+			ITS A MENU BUTTON AND WHEN A SCREEN REDUCES TO SMALL OR MOBILE SIZE(BREAK POINT) ALL THE ITEMS ARE AUTOMATICAALY LISTED UNDER THE MENU
 			<button type="button" data-bs-toggle="collapse"
 				data-bs-target="#navigationbar" class="navbar-toggler">
 				MENU</button>
-			<!--ITEMS OF NAVIGATION BAR-->
+			ITEMS OF NAVIGATION BAR
 			<div class="collapse navbar-collapse" id="navigationbar">
 				<ul class="navbar-nav ms-auto">
 					<li class="nav-item "><a href="" class="nav-link active">Item
@@ -54,8 +54,8 @@ var shipmentJSONData = ${shipmentData};
 				</ul>
 			</div>
 			</div>
-	</nav>
-
+	</nav> -->
+	<jsp:include page="Header.jsp" />
 	<div class="container" id="">
 		<div class="row d-flex justify-content-center"
 			style="width: 100%; height: 100%;">

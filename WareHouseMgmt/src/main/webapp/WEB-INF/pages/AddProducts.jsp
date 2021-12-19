@@ -21,7 +21,7 @@
 
 <body onload="initialize()">
     <!--Nav Bar Code-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-dark">
         <a class="navbar-brand" href="#">
             <img src="../img/HomeIcon.svg" alt="LOGO" width="40" height="40" style="margin-left: 30%;"
                 class="d-inline-block align-top">
@@ -52,9 +52,10 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav> -->
     <!--Navbar Code Ends-->
-
+	<jsp:include page="Header.jsp" />
+	
     <!--Product Form-->
     <div class="container mt-5">
         <h1>Add Product</h1>

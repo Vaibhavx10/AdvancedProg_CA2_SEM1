@@ -16,14 +16,14 @@
 
     
     <!--navigation bar-->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container-fluid">
     <span class="navbar-brand mb-0 h1">Title of website</span>
-    <!--we can add logo in img-->
+    we can add logo in img
     <img 
     class="d-inline-block align-top"
     src="" width="" height="">
-    <!--ITS A MENU BUTTON AND WHEN A SCREEN REDUCES TO SMALL OR MOBILE SIZE(BREAK POINT) ALL THE ITEMS ARE AUTOMATICAALY LISTED UNDER THE MENU-->
+    ITS A MENU BUTTON AND WHEN A SCREEN REDUCES TO SMALL OR MOBILE SIZE(BREAK POINT) ALL THE ITEMS ARE AUTOMATICAALY LISTED UNDER THE MENU
     <button
     type="button"
     data-bs-toggle="collapse"
@@ -32,7 +32,7 @@
     >
     MENU
     </button>
-    <!--ITEMS OF NAVIGATION BAR-->
+    ITEMS OF NAVIGATION BAR
     <div
     class="collapse navbar-collapse" id="navigationbar">
     <ul class="navbar-nav ms-auto">
@@ -56,7 +56,11 @@
         </li>
     </ul>
     </div>
-    </nav>
+    </nav> -->
+    
+    <jsp:include page="Header.jsp" />
+    
+    
     <div class="row">
         <!--three containers using grid-->
     <div class="container-lg my-5" id="three container">

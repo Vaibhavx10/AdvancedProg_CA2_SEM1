@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
  *	Entity for Customer
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "Customer")
@@ -34,5 +33,14 @@ public class Customer {
 	
 	private Integer CustomerContact;
 
+	public Customer(Integer customerId, String customerName, String customerAddress, Integer customerContact) {
+		CustomerId = customerId;
+		CustomerName = customerName;
+		CustomerAddress = customerAddress;
+		CustomerContact = customerContact;
+	}
+
+	
+	
 
 }

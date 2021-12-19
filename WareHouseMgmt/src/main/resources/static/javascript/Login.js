@@ -20,7 +20,7 @@ function checkUserSession() {
 		renderLoginModal()
 	}
 	else {
-		window.location.href = `../`;
+		window.location.href = `../dashboard`;
 	}
 }
 

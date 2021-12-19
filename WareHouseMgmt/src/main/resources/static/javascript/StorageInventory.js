@@ -5,6 +5,7 @@
 var storageId;
 
 function init(){
+	checkUserSession();
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
    	storageId=params['storageId']
@@ -12,6 +13,16 @@ function init(){
 	getStorageInventory(storageId)
 	getStorageInfo(storageId)
 }
+
+
+function checkUserSession() {
+	var userData = JSON.parse(sessionStorage.getItem("userData"));
+	if (userData == null) {
+		alert("Session is Expired Please login again");
+		window.location.href = `/`;
+	}
+}
+
 
 
 function getStorageInventory(storageId){

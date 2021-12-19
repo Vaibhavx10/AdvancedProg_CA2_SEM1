@@ -1,8 +1,17 @@
+
+/**
+ * Initializer function
+ */
 function initialize() {
 	checkUserSession();
 	setProductDropdown(lisProductinfo);
 }
 
+
+/**
+*Function to check user session
+* @author Vaibhav
+*/
 function checkUserSession() {
 	var userData = JSON.parse(sessionStorage.getItem("userData"));
 	if (userData == null) {
@@ -11,6 +20,10 @@ function checkUserSession() {
 	}
 }
 
+
+/**Function to set product drop down
+* @author Vaibhav
+*/
 function setProductDropdown(lisProductinfo){
 	
 	var prdDropDown = document.getElementById("dd_li_prd_categoryname");
@@ -25,11 +38,19 @@ function setProductDropdown(lisProductinfo){
 }
 
 
+
+/**
+* @author Vaibhav
+*/
 function dropdownValue(){
 	alert($('#finaldropdownselection').value());
 }
 
 
+
+/**Function to get product details
+* @author Vaibhav
+*/
 function getProductDetails(productID,productName){
 	var selectedIteam = document.getElementById("dropdownMenuButton1");
 	var setDDID = document.getElementById("setDropDownIdhere");
@@ -39,12 +60,18 @@ function getProductDetails(productID,productName){
 }
 
 
+/**Function to set storage type
+* @author Vaibhav
+*/
 function setStorageType(id){
 	var selectedIteam = document.getElementById("dropdownMenuButton2");
 	selectedIteam.innerHTML = id;
 }
 
 
+/**Function to add product
+* @author Vaibhav
+*/
 function addProductInDB(){
 	console.log("addProductInDB Called !!");
 
@@ -89,6 +116,10 @@ if(productname!=null && quantity!=null && unitprice !=null && productcatname!=nu
 }
 
 
+
+/**Function for validation
+* @author Vaibhav
+*/
 function genricValidation(idString){
 
 	if(document.getElementById(idString).value!=null && document.getElementById(idString).value.length > 0 ){
@@ -100,6 +131,11 @@ function genricValidation(idString){
 	}
 }
 
+
+
+/**Function for drop down validation
+* @author Vaibhav
+*/
 function dropDownGenricValidation(idString) {
 
 	var val = document.getElementById('dropdownMenuButton1').innerText;

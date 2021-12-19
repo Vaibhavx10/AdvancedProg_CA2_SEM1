@@ -1,11 +1,21 @@
 //Dashboard logicall Page
 
+
+
+/**
+ * Initializer function
+ */
 function initialize(xAxis, yAxis) {
 	checkUserSession();
 	loadProductAddedPerDay(xAxis, yAxis);
 	loadShipmentInfo(shipmentJSONData);
 }
 
+
+/**
+* Function to check user session
+* @author Vaibhav
+*/
 function checkUserSession() {
 	var userData = JSON.parse(sessionStorage.getItem("userData"));
 	if (userData == null) {
@@ -15,6 +25,10 @@ function checkUserSession() {
 }
 
 
+/**
+* Function to load product
+* @author Vaibhav
+*/
 function loadProductAddedPerDay(xAxis, yAxis) {
 	var ctx = document.getElementById('myChart');
 	var myChart = new Chart(ctx,
@@ -53,7 +67,10 @@ function loadProductAddedPerDay(xAxis, yAxis) {
 }
 
 
-//This method is used to set data when the more info iteam is clicked on table 
+/**
+* Function to assign Elements Inside Expand
+* @author Vaibhav
+*/
 function assignElementsInsideExpand(d) {
 	var shipmentAddressXML = d.shipmentAddress;
 
@@ -69,6 +86,10 @@ function assignElementsInsideExpand(d) {
 
 }
 
+/**
+* Function to load shipment
+* @author Vaibhav
+*/
 function loadShipmentInfo(shipmentJSONData) {
 
 	var dt = $('#example').DataTable({

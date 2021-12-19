@@ -10,12 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dbs.entity.Product;
 import com.dbs.service.ProdService;
 
+
+/**
+ * @author Vaibhav
+ * Controller for product operations
+ */
 @RestController
 public class AddProductController {
 
 	@Autowired
 	ProdService prodService;
 
+	
+	/**API Method : addDataToProductTable
+	 * @author Vaibhav
+	 * add data to product table
+	 * parameters : String,String, String,String,String,String,String,String
+	 * returns : String
+	 */	
 	@PostMapping("/addDataToProductTable")
 	public String addDataToProductTable(@RequestParam String productname, @RequestParam String quantity,
 			@RequestParam String unitprice, @RequestParam String productcatname, @RequestParam String description,

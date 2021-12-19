@@ -12,7 +12,10 @@ public class EmailNotification {
 	private JavaMailSender javaMailSender;
 	
 	
-	
+	/**Method : sendMail
+	 * @author Vaibhav
+	 *	sendMail
+	 */
 	public void sendMail() {
 		try {
 		SimpleMailMessage smp = new SimpleMailMessage();

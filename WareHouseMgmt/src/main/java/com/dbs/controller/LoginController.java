@@ -21,8 +21,6 @@ import com.dbs.service.LoginService;
  * @author Pankesh
  * RestConrtoller for Login operations
  */
-
-
 @RestController
 public class LoginController {
 

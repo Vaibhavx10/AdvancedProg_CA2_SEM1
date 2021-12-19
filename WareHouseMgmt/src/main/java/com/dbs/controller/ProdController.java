@@ -18,6 +18,11 @@ import com.dbs.entity.Shipment;
 import com.dbs.service.ProdService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+/**
+ * @author Vaibhav
+ * Controller for Product operations
+ */
 @Controller
 public class ProdController {
 
@@ -31,6 +36,12 @@ public class ProdController {
 	 * product) { return prodService.saveStuff(product); }
 	 */
 	
+	/**API Method : addProduct
+	 * @author Vaibhav
+	 * add Product
+	 * parameters : Model
+	 * returns : String
+	 */
 	@GetMapping("/addProduct")
 	public String addProdct(Model model) {
 		
@@ -54,12 +65,23 @@ public class ProdController {
 	}
 	
 	
-
+	/**API Method : getProduct
+	 * @author Vaibhav
+	 * get Product
+	 * parameters : int
+	 * returns : Product
+	 */
 	@GetMapping("/getProduct/{id}")
 	public Product getProdct(@PathVariable int id) {
 		return prodService.getStuffByID(id);
 	}
 
+	/**API Method : loginPage
+	 * @author Vaibhav
+	 * get login page
+	 * parameters : Model
+	 * returns : String
+	 */
 	@RequestMapping("/")
 	public String loginPage(Model model) {
 		System.out.println("inside dashboard");
@@ -67,7 +89,12 @@ public class ProdController {
 	}
 
 	
-
+	/**API Method : getAllProducts
+	 * @author Vaibhav
+	 * get dashboard page
+	 * parameters : Model
+	 * returns : String
+	 */
 	@GetMapping("/dashboard")
 	public String getAllProducts(Model model) {
 		List<Product> lproduct = prodService.getAllProductsPerDate();
@@ -108,15 +135,24 @@ public class ProdController {
 		return "Dashboard";
 	}
 	
-	
+	/**API Method : getShipmentInfo
+	 * @author Vaibhav
+	 * get shipment
+	 * parameters : Model
+	 * returns : List<Shipment>
+	 */
 	@GetMapping("/getShipmentInfo")
 	public List<Shipment> getShipmentInfo() {
 		return prodService.getShipmentDetails();
 	}
 	
 	
-	
-	/* Calls the JSP page */
+	/**API Method : loadContactUS
+	 * @author Chirag
+	 * get ContactUS page
+	 * parameters : Model
+	 * returns : String
+	 */
 	@GetMapping("/contactUS")
 	public String loadContactUS(Model model) {
 		return "ContactUS";

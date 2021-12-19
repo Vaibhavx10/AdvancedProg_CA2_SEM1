@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./ContactFormStyling.css">
+    <link rel="stylesheet" href="../css/ContactStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <title>Contact Form</title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
 <body>  
     <!--Nav Bar Code-->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -48,6 +50,7 @@
 <!--Contact Form-->
 
     <div class="container contactus">
+    	<div class="row">
         <h1>Contact Us!</h1>
             <div class="col-md-6" id="contactlabel-1">
                 <label class="form-label">First Name</label>
@@ -102,6 +105,7 @@
                 <button type="submit" 
                 id="contactbtn" class="BUTTON btn-outline-dark" onclick="addContactUSInfoInDB()">Submit</button>
             </div>
+       </div>
     </div>
     <!--Contact Form Code Ends-->
 
@@ -146,6 +150,6 @@
 
 <!--Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-<script src="../javascript/ContactFormLogic.js"></script>
+<script src="../javascript/ContactLogic.js"></script>
 </body>
 </html> 

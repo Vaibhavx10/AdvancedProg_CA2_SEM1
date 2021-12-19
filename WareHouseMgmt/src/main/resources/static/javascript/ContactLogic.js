@@ -33,6 +33,8 @@ function countries_code() {
 
 
 function addContactUSInfoInDB() {
+	
+	alert("addContactUSInfoInDB Called !! ")
 
 	var fname = genricValidation('first-name');
 	var lname = genricValidation('last-name');
@@ -43,7 +45,7 @@ function addContactUSInfoInDB() {
 
 
 
-	if (fname != null && lname != null && email != null && country != null && message != null && phone == "") {
+	if (fname != null && lname != null && email != null && country != null && message != null && phone != null) {
 		$.ajax({
 			url: "/addContactInfoInDB",
 			type: "post",

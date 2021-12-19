@@ -26,8 +26,8 @@ public class CustomerController {
 	 * returns : Customer
 	 */	
 	@GetMapping("/getCustomerDataOnID")
-	public Customer getCustomerDataOnID(int custID) {
-		return customerService.getONCustID(custID);
+	public Customer getCustomerDataOnID(String custID) {
+		return customerService.getONCustID(Integer.parseInt(custID));
 	}
 	
 	

@@ -63,7 +63,7 @@
         <div class="dropdown col-md-6">
 				<button class="btn btn-secondary dropdown-toggle" type="button"
 					id="dropdownMenuButton1" data-bs-toggle="dropdown"
-					aria-expanded="false">Product Category Name</button>
+					aria-expanded="false" style="width: 200px;">Product Category Name</button>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" id="dd_li_prd_categoryname">
 				</ul>
 				<h5 class="hideIt" id="setDropDownIdhere" >
@@ -77,7 +77,7 @@
             <div class="dropdown col-md-6">
 				<button class="btn btn-secondary dropdown-toggle" type="button"
 					id="dropdownMenuButton2" data-bs-toggle="dropdown"
-					aria-expanded="false">Storage Type</button>
+					aria-expanded="false" style="width: 200px;">Storage Type</button>
 				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" id="dd_li_storagetype">
 					<li><a class="dropdown-item" href="#" onclick="setStorageType('1')">1</a></li>
 					<li><a class="dropdown-item" href="#" onclick="setStorageType('2')">2</a></li>
@@ -121,8 +121,8 @@
                 <label for="Description" class="form-label">Product Description</label>
                 <textarea class="form-control" id="Description" rows="3">Type Here!</textarea>
             </div>
-            <div class="col-md-12" id="contactsubmitbtn">
-                <button type="submit" class="BUTTON btn-outline-dark" onclick="addProductInDB()">Submit</button>
+            <div class="col-md-12 text-center" id="contactsubmitbtn">
+                <button type="submit" class="BUTTON btn-outline-dark btn-lg mt-3" onclick="addProductInDB()">Submit</button>
             </div>
         </div>
     </div>

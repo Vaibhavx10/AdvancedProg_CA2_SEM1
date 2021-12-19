@@ -24,8 +24,9 @@ body {
 
 .errorChecker{
 	visibility: hidden;
-    background-color: black;
+    background-color: white;
     color: red;
+    font-size: small;
 }
 
 .hideIt{

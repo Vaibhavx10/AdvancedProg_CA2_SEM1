@@ -118,4 +118,15 @@ public class ProdController {
 	public List<Shipment> getShipmentInfo() {
 		return prodService.getShipmentDetails();
 	}
+	
+	
+	
+	/* Calls the JSP page */
+	@GetMapping("/contactUS")
+	public String loadContactUS(Model model) {
+		return "ContactUS";
+	}
+
+	
+	
 }

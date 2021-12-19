@@ -6,11 +6,19 @@
 var OList = [];
 var Products=[];
 var selectedProductList=[];
+var customer=null;
+var customers={
+	"1":	"Tesco",
+	"2":	"Lidl",
+	"3":	"Dealz"
+}
 
 function init() {
 	getOrdersList()
 	getProducts()
+	getCustomer()
 	checkUserSession()
+
 }
 
 function checkUserSession() {
@@ -19,6 +27,23 @@ function checkUserSession() {
 		alert("Session is Expired Please login again");
 		window.location.href = `/`;
 	}
+}
+
+
+function getCustomer(){
+	
+	var dropdown =  document.getElementById("ul_customer");
+	
+	Object.keys(customers).forEach(function (item) {
+	  let data=`<li><a class="dropdown-item" onclick="getStorageDetails(${item})">${customers[item]}</a></li>`;
+		dropdown.innerHTML=dropdown.innerHTML	+	data	;
+	});
+}
+
+function getStorageDetails (customerId){
+
+	document.getElementById("dd_customer").innerHTML = customers[customerId];
+	customer=customerId;
 }
 
 function getOrdersList() {
@@ -157,7 +182,7 @@ function addToBucket(){
 
 	domList.innerHTML = domList.innerHTML + `<li class="list-group-item">
 										<div class="row">
-											<div class="col-9">${selectedProduct.productName}</div><div class="col-3"><input type="number" id="q_${selectedProduct.productId}"></div>
+											<div class="col-8">${selectedProduct.productName}</div><div class="col-4"><input type="number" id="q_${selectedProduct.productId}"></div>
 										 </div>
 										</li>`
 	}
@@ -169,10 +194,23 @@ function addToBucket(){
 
 function addOrder(){
 
+	if(selectedProductList.length <=0 || customer==null){
+	alert("Invalid! Please fill all details!")
+	return	
+	}
+
+	
+
 	let prodQuant=[]
 	
 	selectedProductList.forEach(x=>{
 	let q = document.getElementById("q_"+`${x.productId}`).value;
+	
+	if(q=="" || q==null){
+		alert("Invalid! Please fill all details!")
+		return	
+	}
+	
 	let p={
 			ProductId: x.productId,
 			Quantity : q
@@ -186,7 +224,7 @@ function addOrder(){
 	
 
 	var Order = {
-		customerId: 1,
+		customerId: customer,
 		purchaseDetails: orderxml
 	}
 
@@ -200,6 +238,8 @@ function addOrder(){
 		data: json,
 		success: function(response) {
 			console.log(response)
+			alert("Order has been placed!!")
+			window.location.reload();
 		},
 		error: function(xhr) {
 			console.log(xhr)

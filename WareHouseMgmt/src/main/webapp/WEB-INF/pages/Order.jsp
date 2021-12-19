@@ -48,11 +48,12 @@
 					</ul>
 				</div>
 		</nav>
-		
+
 		</container>
 	</section> -->
 
 	<jsp:include page="Header.jsp" />
+
 
 
 	<section>
@@ -64,37 +65,72 @@
 												<div class="p-5 bzg-primary text-light">COL 1</div>
 					</div> -->
 
+
+
 			<div class="text-center">
 				<div class="p-3">
 
+					<p>
+						<button class="btn btn-primary" type="button"
+							data-bs-toggle="collapse" data-bs-target="#bucket"
+							aria-expanded="false" aria-controls="bucket">+ Add Order
+						</button>
+					</p>
+					<div class="collapse" id="bucket">
+						<div class="card card-body">
+							<div class="row m-3">
+								<div class="col-lg-5">
+									<select class="form-select" size="5" multiple
+										style="width: 100%; height: 100%;" Place an
+										order" id="sl_products">
 
-					<button class="btn btn-primary btn-lg" onclick="generateOrderXML()">+
-						Add Order</button>
-					<div class="row m-5">
-						<div class="col-lg-5">
-							<select class="form-select" size="5" multiple
-								style="width: 100%; height: 100%;" Place an
-								order" id="sl_products">
+									</select>
+								</div>
+								<div class="col-lg-2"
+									style="display: table-cell; vertical-align: middle; text-align: center;">
+									<button class="btn btn-secondary btn-sm"
+										onclick="addToBucket()" style="display: inline-block;">==>></button>
+								</div>
+								<div class="col-lg-auto"
+									style="width: 40%; height: 40%; overflow: scroll; min-height: 150px; max-height: 300px">
+									<div class="row" style="text-align: justify">
+										<div class="col-8">Product Name</div>
+										<div class="col-4">Quantity</div>
+									</div>
+									<ul class="list-group list-group-flush"
+										id="ul_selectedProducts" style="text-align: center">
 
-							</select>
-						</div>
-						<div class="col-lg-1"
-							style="display: table-cell; vertical-align: middle; text-align: center;">
-							<button class="btn btn-secondary btn-sm" onclick="addToBucket()"
-								style="display: inline-block;">==>></button>
-						</div>
-						<div class="col-lg-6"
-							style="width: 40%; height: 40%; overflow: scroll; min-height: 150px; max-height: 300px">
-							<ul class="list-group list-group-flush" id="ul_selectedProducts"
-								style="text-align: justify">
+									</ul>
 
-							</ul>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-3"></div>
+								<div class="col">
+									<div class="dropdown">
+										<button class="btn btn-primary dropdown-toggle"
+											type="button" id="dd_customer" data-bs-toggle="dropdown"
+											aria-expanded="false">Choose Customer</button>
+										<ul class="dropdown-menu" aria-labelledby="dd_StorageType"
+											id="ul_customer">
 
+										</ul>
+									</div>
+								</div>
+								<div class="col">
+									<button class="btn btn-primary" onclick="addOrder()">+
+										Confirm Order</button>
+								</div>
+								<div class="col-3"></div>
+							</div>
 						</div>
 					</div>
 
-					<button class="btn btn-primary btn-lg" onclick="addOrder()">+
-						Confirm Order</button>
+
+
+
+
+
 				</div>
 			</div>
 			<!-- 					<div class="col-lg-2" id="container three">
@@ -104,6 +140,7 @@
 		</div>
 
 	</section>
+
 
 
 	<section>

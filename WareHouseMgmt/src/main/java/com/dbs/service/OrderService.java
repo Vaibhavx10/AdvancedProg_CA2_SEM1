@@ -42,21 +42,35 @@ public class OrderService {
 			for (Order objectOrder : objOrder) {
 
 				JSONObject jsonPurchaseDetail = XML.toJSONObject(objectOrder.getPurchaseDetails());
-				JSONArray arrOrderDetail = jsonPurchaseDetail.getJSONObject("PurchaseDetail")
-															 .getJSONArray("OrderDetail");
+				
+				
+				
+				
+
+				
+				JSONArray arrPurchaseDetail = jsonPurchaseDetail.getJSONObject("PurchaseDetail")
+												.optJSONArray("OrderDetail");
+				JSONArray arrOrderDetail = new JSONArray();
+				if(arrPurchaseDetail==null) {
+					JSONObject objOrderDetail = jsonPurchaseDetail.getJSONObject("PurchaseDetail")
+							.getJSONObject("OrderDetail");
+					arrOrderDetail.put(objOrderDetail);
+				}
+				
+				
+				
 				List<PurchaseDetail> filteredProd = new ArrayList<PurchaseDetail>();
+				System.out.println(objectOrder);
 				
 				for (int i = 0; i < arrOrderDetail.length(); i++) {
 					String prod = arrOrderDetail.getJSONObject(i).get("ProductId").toString();
 
-					PurchaseDetail objPD= new PurchaseDetail();
+					PurchaseDetail objPD = new PurchaseDetail();
 					objPD.setOrderId(objectOrder.getOrderId());
-					Object[] p = objProd.stream()
-							.filter(x -> x.getProductId().toString().equals(prod)).toArray();
-							
-					 
-					objPD.setProduct((Product)p[0]);
-					
+					Object[] p = objProd.stream().filter(x -> x.getProductId().toString().equals(prod)).toArray();
+
+					objPD.setProduct((Product) p[0]);
+
 					Integer Quantity = ((Long) arrOrderDetail.getJSONObject(i).get("Quantity")).intValue();
 					objPD.setQuantity(Quantity);
 
@@ -72,9 +86,7 @@ public class OrderService {
 		}
 		return objOrder;
 	}
-	
-	
-	
+
 	public List<Product> getProducts() {
 		List<Product> objProd = null;
 		try {
@@ -85,17 +97,13 @@ public class OrderService {
 		}
 		return objProd;
 	}
-	
-	
-	
-	public Order addOrder(Order objOrder) {
-		Order objO=null;
+
+	public void addOrder(Order objOrder) {
 		try {
-			objO = orderReposiotry.save(objOrder);
+			orderReposiotry.addOrder(objOrder.getCustomerId(), objOrder.getPurchaseDetails());
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return objO;
 	}
 }

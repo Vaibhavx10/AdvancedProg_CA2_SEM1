@@ -41,6 +41,23 @@ function validateLogin() {
 
 	let userName = document.getElementById('userName').value;
 	let userPassword = document.getElementById('userPassword').value;
+	
+	var Regex = /^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/
+	
+	
+	if(userName=="" || userName==null || !Regex.test(userName)){
+	alert("Please fill valid UserName!")
+	return
+	}
+
+
+	if(userPassword=="" || userPassword==null || !Regex.test(userPassword)){
+	alert("Please fill valid Password!")
+	return
+	}
+	
+
+
 
 	var WarehouseUser = {
 		userName: userName,
@@ -82,6 +99,28 @@ function createUser() {
 
 	let userName = document.getElementById('registerUserName').value;
 	let userPassword = document.getElementById('registerUserPassword').value;
+	
+	
+	var Regex = /^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$/
+	
+	
+	if(userName=="" || userName==null || !Regex.test(userName)){
+	alert("Please fill valid User Name!")
+	return
+	}
+
+
+	if(userPassword=="" || userPassword==null || !Regex.test(userPassword)){
+	alert("Please fill valid Password!")
+	return
+	}
+	
+	if(!(UserRole==1 || UserRole==2 ||UserRole=="1" || UserRole=="2")){
+	alert("Please select User Role!")
+	return
+	}
+	
+
 
 	var WarehouseUser = {
 		userName: userName,
@@ -99,7 +138,8 @@ function createUser() {
 		data: json,
 		success: function(response) {
 			console.log(response)
-			checkUserSession()
+			alert('User Sucessfully created!')
+			window.location.reload();
 		},
 		error: function(xhr) {
 			console.log(xhr)

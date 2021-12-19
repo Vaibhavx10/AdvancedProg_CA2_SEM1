@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<style>
+
+</style>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 		<div class="container-fluid">
 			<span class="navbar-brand mb-0 h1">WareHouse Management  System</span>
 			<!--we can add logo in img-->

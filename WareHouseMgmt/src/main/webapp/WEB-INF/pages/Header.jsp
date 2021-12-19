@@ -19,10 +19,10 @@
 			<!--ITEMS OF NAVIGATION BAR-->
 			<div class="collapse navbar-collapse" id="navigationbar">
 				<ul class="navbar-nav ms-auto">
+				<li class="nav-item"><a href="dashboard" class="nav-link active">Dashboard</a></li>
 					<li class="nav-item "><a href="addProduct" class="nav-link active">Add Product</a></li>
 					<li class="nav-item "><a href="Orders" class="nav-link active">Orders</a></li>
 					<li class="nav-item "><a href="storage" class="nav-link active">Storage</a></li>
-					<li class="nav-item"><a href="dashboard" class="nav-link active">Dashboard</a></li>
 					<li class="nav-item"><a href="contactUS" class="nav-link active">Contact US</a></li>
 					<li class="nav-item nav-link active" onclick="logout()">Logout</li>
 				</ul>

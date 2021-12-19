@@ -15,7 +15,7 @@
 
 
 <!-- Modal -->
-<div class="modal" id="loginModal" tabindex="-1"  aria-hidden="true">
+<div class="modal" data-bs-backdrop="static" id="loginModal" tabindex="-1"  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -39,22 +39,20 @@
         
       </div>
       <div class="modal-footer">
-           <button type="button" class="btn btn-primary" onclick="validateLogin()">Login</button>
-           <button type="button" data-bs-target="#registerModal" data-bs-toggle="modal" class="btn btn-primary">Create User</button>
+           <button type="button" class="btn btn-secondary" onclick="validateLogin()">Login</button>
+           <button type="button" data-bs-target="#registerModal" data-bs-toggle="modal" class="btn btn-outline-secondary">Create User</button>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="modal" id="registerModal" tabindex="-1"  aria-hidden="true">
+<div class="modal" data-bs-backdrop="static" id="registerModal" tabindex="-1"  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="loginModalLabel">Create Warehouse User</h5>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
       </div>
       <div class="modal-body">
         
@@ -69,7 +67,7 @@
           </div>
           
           <div class="dropdown">
-			<button class="btn btn-danger dropdown-toggle" type="button" id="dd_UserRole" data-bs-toggle="dropdown" aria-expanded="false" style="width:100px">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dd_UserRole" data-bs-toggle="dropdown" aria-expanded="false" style="width:100px">
 				User Role
 			</button>
 			<ul class="dropdown-menu" aria-labelledby="dd_UserRole">
@@ -83,8 +81,8 @@
         
       </div>
       <div class="modal-footer">
-        <button type="button"  class="btn btn-primary" data-bs-target="#loginModal" data-bs-toggle="modal">Back to Login</button>
-        <button type="button" class="btn btn-primary" onclick="createUser()">Create User</button>
+        <button type="button"  class="btn btn-outline-secondary" data-bs-target="#loginModal" data-bs-toggle="modal">Back to Login</button>
+        <button type="button" class="btn btn-secondary" onclick="createUser()">Create User</button>
       </div>
     </div>
   </div>

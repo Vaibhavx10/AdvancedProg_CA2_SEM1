@@ -2,8 +2,12 @@
  * 
  */
 
+
+/**global variables*/
 var storageId;
 
+
+/**initializer function*/
 function init(){
 	checkUserSession();
     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -14,7 +18,9 @@ function init(){
 	getStorageInfo(storageId)
 }
 
-
+/**Function to check user session
+* @author Pankesh
+*/
 function checkUserSession() {
 	var userData = JSON.parse(sessionStorage.getItem("userData"));
 	if (userData == null) {
@@ -24,7 +30,9 @@ function checkUserSession() {
 }
 
 
-
+/**Function to get storage Inventory by Ajax Get call and bind datatable for response
+* @author Pankesh
+*/
 function getStorageInventory(storageId){
 
 	$.ajax({
@@ -62,7 +70,9 @@ function getStorageInventory(storageId){
 
 
 
-
+/**Function to get storage info by Ajax Get call and bind response
+* @author Pankesh
+*/
 function getStorageInfo(storageId){
 
 	$.ajax({

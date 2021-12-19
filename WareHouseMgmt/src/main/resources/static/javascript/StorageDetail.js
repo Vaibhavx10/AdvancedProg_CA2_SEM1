@@ -2,7 +2,7 @@
  * 
  */
 
-
+/**Global Variables*/
 var storageTypes={
 	"0": "All",
 	"1": "GeneralStorage",
@@ -10,12 +10,16 @@ var storageTypes={
 	"3": "Shelf"
 }
 
+/** Initializer function*/
 function init(){
 
 	getStorageType();
 	checkUserSession();
 	}
 
+/**Function to check user session
+* @author Pankesh
+*/
 function checkUserSession() {
 	var userData = JSON.parse(sessionStorage.getItem("userData"));
 	if (userData == null) {
@@ -25,11 +29,11 @@ function checkUserSession() {
 }
 
 
+/**Function to get storage types and bind it drop down options
+* @author Pankesh
+*/
 function getStorageType(){
 	
-	
-	
-
 	var dropdown =  document.getElementById("ul_StorageType");
 	
 	Object.keys(storageTypes).forEach(function (item) {
@@ -37,10 +41,14 @@ function getStorageType(){
 		dropdown.innerHTML=dropdown.innerHTML	+	data	;
 	});
 	
+	/**Default call for all storage types on first load*/
 	getStorageDetails(0);
 }
 
 
+/**Function to get storage Details by Type using Ajax Get call and bind datatable for response
+* @author Pankesh
+*/
 function getStorageDetails (storageTypeId){
 
 	document.getElementById("dd_StorageType").innerHTML = storageTypes[storageTypeId];
@@ -76,6 +84,7 @@ function getStorageDetails (storageTypeId){
 			
 			let rows = document.getElementById('storageTable').getElementsByTagName('tbody')[0].getElementsByTagName('tr')
 			
+			/**Adding event listener for row elements click*/
 			for (var item of rows) {
 			   item.addEventListener("click",rowClick)
 			}
@@ -88,7 +97,9 @@ function getStorageDetails (storageTypeId){
 	
 }
 
-
+/**Function to redirect to inventory page on storage row click
+* @author Pankesh
+*/
 function rowClick(){
 		var table = $('#storageTable').DataTable();		
         var data = table.row( this ).data();

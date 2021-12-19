@@ -9,6 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * @author Pankesh
+ * Entity for Storage
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

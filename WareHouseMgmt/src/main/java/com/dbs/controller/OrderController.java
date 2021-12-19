@@ -21,7 +21,7 @@ import com.dbs.service.OrderService;
 
 /**
  * @author Pankesh
- *
+ * RestController for Order operations
  */
 @RestController
 public class OrderController {
@@ -51,7 +51,7 @@ public class OrderController {
 	 * @author Pankesh
 	 * get products
 	 * parameters : String,String
-	 * returns : WarehouseUser
+	 * returns : List<Product>
 	 */	
 	@GetMapping("/getProducts")
 	public List<Product> getProducts() {
@@ -68,9 +68,9 @@ public class OrderController {
 	
 	/**API Method : addOrder
 	 * @author Pankesh
-	 * Add warehouse user
-	 * parameters : WarehouseUser
-	 * returns : WarehouseUser
+	 * Add order
+	 * parameters : Order
+	 * returns : boolean
 	 */	
 
 	@PostMapping("/addOrder")

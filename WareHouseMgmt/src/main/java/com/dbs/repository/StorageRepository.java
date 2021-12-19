@@ -40,12 +40,17 @@ public class StorageRepository {
 	public List<StorageDetail> getStorageByType(int storageTypeId) {
 		List<StorageDetail> obj=null;
 		try {
+			/* Creates stored procedure query object and registers input parameters */
 			StoredProcedureQuery storedProcedure = manager.createStoredProcedureQuery("WHM_GetAllStorageByType")
 					.registerStoredProcedureParameter("p_StorageTypeId" , Integer.class , ParameterMode.IN);
-											
+			
+			/* binds parameters to procedure object */
 			storedProcedure.setParameter("p_StorageTypeId", storageTypeId);
 			
+			/* executes procedures*/
 			storedProcedure.execute();
+			
+			/*gets result set*/
 			obj=(List<StorageDetail>)storedProcedure.getResultList();
 			
 		}
@@ -66,12 +71,17 @@ public class StorageRepository {
 	public List<StorageInventory> getStorageInventory(int storageId) {
 		List<StorageInventory> obj=null;
 		try {
+			/* Creates stored procedure query object and registers input parameters */
 			StoredProcedureQuery storedProcedure = manager.createStoredProcedureQuery("WHM_GetStorageInventory")
 					.registerStoredProcedureParameter("p_StorageId" , Integer.class , ParameterMode.IN);
-											
+			
+			/* binds parameters to procedure object */
 			storedProcedure.setParameter("p_StorageId", storageId);
 			
+			/* executes procedures*/
 			storedProcedure.execute();
+			
+			/*gets result set*/
 			obj=(List<StorageInventory>)storedProcedure.getResultList();
 			
 		}
@@ -92,12 +102,17 @@ public class StorageRepository {
 	public List<StorageDetail> getStorageInfo(int storageId) {
 		List<StorageDetail> obj=null;
 		try {
+			/* Creates stored procedure query object and registers input parameters */
 			StoredProcedureQuery storedProcedure = manager.createStoredProcedureQuery("WHM_GetStorageInfo")
 					.registerStoredProcedureParameter("p_StorageId" , Integer.class , ParameterMode.IN);
-											
+			
+			/* binds parameters to procedure object */
 			storedProcedure.setParameter("p_StorageId", storageId);
 			
+			/* executes procedures*/
 			storedProcedure.execute();
+			
+			/*gets result set*/
 			obj=(List<StorageDetail>)storedProcedure.getResultList();
 			
 		}

@@ -66,13 +66,13 @@
     <div class="container-lg my-5" id="three container">
         <div class="row">
             <div class="col-lg-2" id="container one">
-                <div class="p-5 bg-primary text-light">COL 1</div>
+
             </div>
             <div class="col-lg-8 text-center" id="container two">
                 <div class="p-5">
-                
+                <h6>Storage Types :</h6>
 				<div class="dropdown">
-				  <button class="btn btn-lg btn-danger dropdown-toggle" type="button" id="dd_StorageType" data-bs-toggle="dropdown" aria-expanded="false" style="width:350px">
+				  <button class="btn btn-lg btn-outline-secondary dropdown-toggle" type="button" id="dd_StorageType" data-bs-toggle="dropdown" aria-expanded="false" style="width:350px">
 				
 				  </button>
 				  <ul class="dropdown-menu" aria-labelledby="dd_StorageType" id="ul_StorageType">
@@ -84,7 +84,7 @@
 				</div>
             </div>
             <div class="col-lg-2" id="container three">
-                <div class="p-5 bg-primary text-light">COL 3</div>
+               
             </div>
         </div>
     </div>

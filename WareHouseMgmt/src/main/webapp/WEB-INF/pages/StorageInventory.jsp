@@ -14,59 +14,22 @@
 
 
     
-    <!--navigation bar-->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Title of website</span>
-    <!--we can add logo in img-->
-    <img 
-    class="d-inline-block align-top"
-    src="" width="" height="">
-    <!--ITS A MENU BUTTON AND WHEN A SCREEN REDUCES TO SMALL OR MOBILE SIZE(BREAK POINT) ALL THE ITEMS ARE AUTOMATICAALY LISTED UNDER THE MENU-->
-    <button
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navigationbar"
-    class="navbar-toggler"
-    >
-    MENU
-    </button>
-    <!--ITEMS OF NAVIGATION BAR-->
-    <div
-    class="collapse navbar-collapse" id="navigationbar">
-    <ul class="navbar-nav ms-auto">
-        <li class="nav-item ">
-            <a href="" class="nav-link active">Item 1</a>
-        </li>
-        <li class="nav-item ">
-            <a href="" class="nav-link active">item 2</a>
-        </li>
-        <li class="nav-item ">
-            <a href="" class="nav-link active">item 3</a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link active">item 4</a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link active">item 5</a>
-        </li>
-        <li class="nav-item">
-            <a href="" class="nav-link">Logout</a>
-        </li>
-    </ul>
-    </div>
-    </nav>
+ 
+    
+   <jsp:include page="Header.jsp" />
+    
+    
     <div class="row">
         <!--three containers using grid-->
     <div class="container-lg my-5" id="three container">
         <div class="row">
             <div class="col-lg-2" id="container one">
-                <div class="p-5 bg-primary text-light">COL 1</div>
+      
             </div>
             <div class="col-lg-8 text-center" id="container two">
                 <div class="p-5">
-                
-                <table>
+                <h5>Storage Details :</h5>
+                <table class="table">
 	                <tbody style="align:left;" class="m-2">
 		                <tr>
 			                <td id="lb_StorageId">StorageId</td><td>:</td><td id="val_StorageId"></td> 
@@ -94,7 +57,7 @@
 				</div>
             </div>
             <div class="col-lg-2" id="container three">
-                <div class="p-5 bg-primary text-light">COL 3</div>
+
             </div>
         </div>
     </div>

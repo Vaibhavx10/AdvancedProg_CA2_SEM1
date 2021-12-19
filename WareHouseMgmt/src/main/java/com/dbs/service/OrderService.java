@@ -50,11 +50,12 @@ public class OrderService {
 				
 				JSONArray arrPurchaseDetail = jsonPurchaseDetail.getJSONObject("PurchaseDetail")
 												.optJSONArray("OrderDetail");
-				JSONArray arrOrderDetail = new JSONArray();
+				
 				if(arrPurchaseDetail==null) {
+					arrPurchaseDetail=new JSONArray();
 					JSONObject objOrderDetail = jsonPurchaseDetail.getJSONObject("PurchaseDetail")
 							.getJSONObject("OrderDetail");
-					arrOrderDetail.put(objOrderDetail);
+					arrPurchaseDetail.put(objOrderDetail);
 				}
 				
 				
@@ -62,8 +63,8 @@ public class OrderService {
 				List<PurchaseDetail> filteredProd = new ArrayList<PurchaseDetail>();
 				System.out.println(objectOrder);
 				
-				for (int i = 0; i < arrOrderDetail.length(); i++) {
-					String prod = arrOrderDetail.getJSONObject(i).get("ProductId").toString();
+				for (int i = 0; i < arrPurchaseDetail.length(); i++) {
+					String prod = arrPurchaseDetail.getJSONObject(i).get("ProductId").toString();
 
 					PurchaseDetail objPD = new PurchaseDetail();
 					objPD.setOrderId(objectOrder.getOrderId());
@@ -71,7 +72,7 @@ public class OrderService {
 
 					objPD.setProduct((Product) p[0]);
 
-					Integer Quantity = ((Long) arrOrderDetail.getJSONObject(i).get("Quantity")).intValue();
+					Integer Quantity = ((Long) arrPurchaseDetail.getJSONObject(i).get("Quantity")).intValue();
 					objPD.setQuantity(Quantity);
 
 					filteredProd.add(objPD);

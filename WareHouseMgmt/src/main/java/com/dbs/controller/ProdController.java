@@ -61,19 +61,14 @@ public class ProdController {
 	}
 
 	@RequestMapping("/")
-	public String dashboardhome(Model model) {
+	public String loginPage(Model model) {
 		System.out.println("inside dashboard");
-		model.addAttribute("appName", "dashboard");
-		return "Dashboard";
+		return "Login";
 	}
 
-	@GetMapping("/home")
-	public String testingGroud(Model model) {
-		model.addAttribute("appNazzme", "pokimon");
-		return "Home";
-	}
+	
 
-	@GetMapping("/getAllProducts")
+	@GetMapping("/dashboard")
 	public String getAllProducts(Model model) {
 		List<Product> lproduct = prodService.getAllProductsPerDate();
 

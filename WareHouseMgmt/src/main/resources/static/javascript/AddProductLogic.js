@@ -1,7 +1,15 @@
 function initialize() {
+	checkUserSession();
 	setProductDropdown(lisProductinfo);
 }
 
+function checkUserSession() {
+	var userData = JSON.parse(sessionStorage.getItem("userData"));
+	if (userData == null) {
+		alert("Session is Expired Please login again");
+		window.location.href = `/`;
+	}
+}
 
 function setProductDropdown(lisProductinfo){
 	

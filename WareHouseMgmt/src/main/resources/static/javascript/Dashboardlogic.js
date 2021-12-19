@@ -1,11 +1,18 @@
 //Dashboard logicall Page
 
 function initialize(xAxis, yAxis) {
+	checkUserSession();
 	loadProductAddedPerDay(xAxis, yAxis);
 	loadShipmentInfo(shipmentJSONData);
 }
 
-
+function checkUserSession() {
+	var userData = JSON.parse(sessionStorage.getItem("userData"));
+	if (userData == null) {
+		alert("Session is Expired Please login again");
+		window.location.href = `/`;
+	}
+}
 
 
 function loadProductAddedPerDay(xAxis, yAxis) {

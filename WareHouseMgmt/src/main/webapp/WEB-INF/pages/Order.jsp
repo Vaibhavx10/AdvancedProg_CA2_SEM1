@@ -20,18 +20,18 @@
 
 
 
-	<section>
-		<container> <!--navigation bar-->
+	<!-- 	<section>
+		<container> navigation bar
 		<nav class="navbar navbar-expand-sm navbar-light bg-light">
 			<div class="container-fluid">
 				<span class="navbar-brand mb-0 h1">Title of website</span>
-				<!--we can add logo in img-->
+				we can add logo in img
 				<img class="d-inline-block align-top" src="" width="" height="">
-				<!--ITS A MENU BUTTON AND WHEN A SCREEN REDUCES TO SMALL OR MOBILE SIZE(BREAK POINT) ALL THE ITEMS ARE AUTOMATICAALY LISTED UNDER THE MENU-->
+				ITS A MENU BUTTON AND WHEN A SCREEN REDUCES TO SMALL OR MOBILE SIZE(BREAK POINT) ALL THE ITEMS ARE AUTOMATICAALY LISTED UNDER THE MENU
 				<button type="button" data-bs-toggle="collapse"
 					data-bs-target="#navigationbar" class="navbar-toggler">
 					MENU</button>
-				<!--ITEMS OF NAVIGATION BAR-->
+				ITEMS OF NAVIGATION BAR
 				<div class="collapse navbar-collapse" id="navigationbar">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item "><a href="" class="nav-link active">Item
@@ -50,53 +50,60 @@
 		</nav>
 		
 		</container>
-	</section>
+	</section> -->
+
+	<jsp:include page="Header.jsp" />
 
 
-<section>
+	<section>
 
-			<!--three containers using grid-->
-			<div class="container-fluid" id="three container">
-				
-<!-- 					<div class="col-lg-2" id="container one">
+		<!--three containers using grid-->
+		<div class="container-fluid" id="three container">
+
+			<!-- 					<div class="col-lg-2" id="container one">
 												<div class="p-5 bzg-primary text-light">COL 1</div>
 					</div> -->
-					
-					<div class="text-center">
-						<div class="p-3">
+
+			<div class="text-center">
+				<div class="p-3">
 
 
-							<button class="btn btn-primary btn-lg"
-								onclick="generateOrderXML()">+ Add Order</button>
-							<div class="row m-5">
-							<div class="col-lg-5">
-								<select class="form-select" size="5" multiple style="width: 100%;height: 100%;
-								aria-label="Place an order" id="sl_products">
+					<button class="btn btn-primary btn-lg" onclick="generateOrderXML()">+
+						Add Order</button>
+					<div class="row m-5">
+						<div class="col-lg-5">
+							<select class="form-select" size="5" multiple
+								style="width: 100%; height: 100%;" Place an
+								order" id="sl_products">
 
 							</select>
-							</div>
-							<div class="col-lg-1" style="display: table-cell;  vertical-align: middle;  text-align: center;">
-							<button class="btn btn-secondary btn-sm"  onclick="addToBucket()" style="display: inline-block;">==>></button>
-							</div>
-							<div class="col-lg-6" style="width: 40%;height: 40%;overflow: scroll; min-height:150px; max-height:300px">
-									<ul class="list-group list-group-flush" id="ul_selectedProducts" style="text-align:justify">
+						</div>
+						<div class="col-lg-1"
+							style="display: table-cell; vertical-align: middle; text-align: center;">
+							<button class="btn btn-secondary btn-sm" onclick="addToBucket()"
+								style="display: inline-block;">==>></button>
+						</div>
+						<div class="col-lg-6"
+							style="width: 40%; height: 40%; overflow: scroll; min-height: 150px; max-height: 300px">
+							<ul class="list-group list-group-flush" id="ul_selectedProducts"
+								style="text-align: justify">
 
-									</ul>
+							</ul>
 
-								</div>
-							</div>
-
-						<button class="btn btn-primary btn-lg"
-								onclick="addOrder()">+ Confirm Order</button>
 						</div>
 					</div>
-<!-- 					<div class="col-lg-2" id="container three">
+
+					<button class="btn btn-primary btn-lg" onclick="addOrder()">+
+						Confirm Order</button>
+				</div>
+			</div>
+			<!-- 					<div class="col-lg-2" id="container three">
 												<div class="p-5 bg-primary text-light">COL 3</div>
 					</div> -->
-				
-			</div>
-		
-</section>
+
+		</div>
+
+	</section>
 
 
 	<section>

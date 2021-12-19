@@ -71,7 +71,7 @@
 				<div class="p-3">
 
 					<p>
-						<button class="btn btn-primary" type="button"
+						<button class="btn btn-secondary" type="button"
 							data-bs-toggle="collapse" data-bs-target="#bucket"
 							aria-expanded="false" aria-controls="bucket">+ Add Order
 						</button>

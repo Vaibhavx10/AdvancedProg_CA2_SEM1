@@ -61,7 +61,7 @@ function getOrdersList() {
 					1: item.orderDate,
 					2: item.customerDetail.customerName,
 					3: item.customerDetail.customerContact,
-					4: `<button type="button" class="btn btn-primary btn-sm" onclick="productList(${item.orderId})"	 data-bs-target="#md_ProductList" data-bs-toggle="modal">View Products</button>`,
+					4: `<button type="button" class="btn btn-outline-secondary btn-sm" onclick="productList(${item.orderId})"	 data-bs-target="#md_ProductList" data-bs-toggle="modal">View Products</button>`,
 				}
 
 

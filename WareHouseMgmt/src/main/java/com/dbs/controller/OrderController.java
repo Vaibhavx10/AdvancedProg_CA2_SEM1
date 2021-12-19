@@ -6,9 +6,12 @@ package com.dbs.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbs.entity.Order;
@@ -69,15 +72,18 @@ public class OrderController {
 	 * parameters : WarehouseUser
 	 * returns : WarehouseUser
 	 */	
+
 	@PostMapping("/addOrder")
-	public Order addOrder(@RequestBody Order objOrder) {
-		Order objO=null;
+	@ResponseStatus(value = HttpStatus.OK)
+	public boolean  addOrder(@RequestBody Order objOrder) {
 		try {
-			objO= orderService.addOrder(objOrder);
+			orderService.addOrder(objOrder);
+			return true;
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			return false;
 		}
-		return objO;
+		
 	}
 }

@@ -10,12 +10,24 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dbs.entity.ContactUS;
 import com.dbs.repository.ContactUSRepo;
 
+
+
+/**
+ * @author Chirag
+ * Controller for contact us
+ */
 @RestController
 public class ContactUSController {
 
 	@Autowired
 	private ContactUSRepo contactUSRepo;
 
+	/**API Method : addDataToProductTable
+	 * @author Chirag
+	 * add contact info
+	 * parameters : String,String, String,String,String,String
+	 * returns : String
+	 */	
 	@PostMapping(value = "/addContactInfoInDB")
 	private String addContactInfoInDB(@RequestParam String FirstName, @RequestParam String LastName,
 			@RequestParam String Email, @RequestParam String Country, @RequestParam String Phone,

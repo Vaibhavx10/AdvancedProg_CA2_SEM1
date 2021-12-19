@@ -1,3 +1,8 @@
+
+
+/**Function for countries codes
+* @author Chirag
+*/
 function countries_code() {
 	var val = document.getElementById("countries").value;
 	if (val === "select country") {
@@ -31,7 +36,9 @@ function countries_code() {
 
 
 
-
+/**Function to add ContactUS
+* @author Chirag
+*/
 function addContactUSInfoInDB() {
 
 	genricHideAll('first-name');
@@ -79,11 +86,20 @@ function addContactUSInfoInDB() {
 
 }
 
+
+
+/**Function to hide all
+* @author Chirag
+*/
 function genricHideAll(idString) {
 	var strName = "val_" + idString;
 	document.getElementById(strName).style.visibility = "hidden";
 }
 
+
+/**Function for validation
+* @author Chirag
+*/
 function genricValidation(idString) {
 
 	if (document.getElementById(idString).value != null && document.getElementById(idString).value.length > 0) {

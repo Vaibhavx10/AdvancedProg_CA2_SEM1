@@ -102,9 +102,9 @@
                 <label class="form-label">Comment Here!</label>
                 <textarea class="form-control" id="commenting" rows="3"></textarea>
             </div>
-            <div class="col-md-12" id="contactsubmitbtn">
+            <div class="col-md-12 text-center" id="contactsubmitbtn">
                 <button type="submit" 
-                id="contactbtn" class="BUTTON btn-outline-dark" onclick="addContactUSInfoInDB()">Submit</button>
+                id="contactbtn" class="BUTTON btn-outline-dark btn-lg mt-3" onclick="addContactUSInfoInDB()">Submit</button>
             </div>
        </div>
     </div>

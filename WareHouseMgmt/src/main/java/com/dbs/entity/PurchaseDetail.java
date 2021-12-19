@@ -13,6 +13,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
+/**
+ * @author Pankesh
+ *	Entity for Order Purchase Details
+ */
 public class PurchaseDetail {
 	private Integer OrderId;
 	private Product Product;

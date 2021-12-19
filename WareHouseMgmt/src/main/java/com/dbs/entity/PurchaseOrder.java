@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Pankesh
- *
+ *	Entity for Purchase Order
  */
 @Data
 @AllArgsConstructor

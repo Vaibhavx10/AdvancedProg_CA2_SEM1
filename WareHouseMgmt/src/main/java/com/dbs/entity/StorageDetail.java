@@ -16,7 +16,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author Pankesh Entity for storage details
+ * @author Pankesh 
+ * Entity for storage details
  */
 
 @NamedStoredProcedureQuery(name = "GetStorageByType", procedureName = "WHM_GetAllStorageByType", resultClasses = {

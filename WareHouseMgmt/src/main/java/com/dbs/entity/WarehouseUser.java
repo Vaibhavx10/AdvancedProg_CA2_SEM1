@@ -17,7 +17,8 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Pankesh
- *
+ *	
+ *	Entity for warehouseuser
  */
 @Data
 @AllArgsConstructor

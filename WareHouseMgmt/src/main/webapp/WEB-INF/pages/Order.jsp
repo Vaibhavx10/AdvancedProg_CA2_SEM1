@@ -108,7 +108,7 @@
 							<div class="col-3"></div>
 								<div class="col">
 									<div class="dropdown">
-										<button class="btn btn-primary dropdown-toggle"
+										<button class="btn btn-outline-secondary dropdown-toggle"
 											type="button" id="dd_customer" data-bs-toggle="dropdown"
 											aria-expanded="false">Choose Customer</button>
 										<ul class="dropdown-menu" aria-labelledby="dd_StorageType"
@@ -118,7 +118,7 @@
 									</div>
 								</div>
 								<div class="col">
-									<button class="btn btn-primary" onclick="addOrder()">+
+									<button class="btn btn-outline-secondary" onclick="addOrder()">+
 										Confirm Order</button>
 								</div>
 								<div class="col-3"></div>

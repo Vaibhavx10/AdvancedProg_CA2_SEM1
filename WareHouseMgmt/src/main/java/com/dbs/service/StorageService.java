@@ -37,13 +37,17 @@ public class StorageService {
 	 * returns : List<StorageDetail>
 	 */	
 	public List<StorageDetail> getStorageByType(int storageTypeID) {
+		
+		/* defined object variable */
 		List<StorageDetail> objStorage=null;
 		try {
+			/* call repository and assign to variable*/
 			objStorage= storageRepo.getStorageByType(storageTypeID);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		/* returns variable */
 		return objStorage;
 	}
 	
@@ -55,13 +59,16 @@ public class StorageService {
 	 * returns : List<StorageInventory>
 	 */	
 	public List<StorageInventory> getStorageInventory(int storageId){
+		/* defined object variable */
 		List<StorageInventory> objInventory=null;
 		try {
+			/* call repository and assign to variable*/
 			objInventory= storageRepo.getStorageInventory(storageId);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		/* returns variable */
 		return objInventory;	
 	}
 	
@@ -73,13 +80,16 @@ public class StorageService {
 	 * returns : List<StorageDetail>
 	 */	
 	public List<StorageDetail> getStorageInfo(int storageId){
+		/* defined object variable */
 		List<StorageDetail> objStorageDetail=null;
 		try {
+			/* call repository and assign to variable*/
 			objStorageDetail= storageRepo.getStorageInfo(storageId);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		/* returns variable */
 		return objStorageDetail;
 	}
 }

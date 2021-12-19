@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author Pankesh
- *
+ * Entity for StorageInventory
  */
 
 @NamedStoredProcedureQuery(name = "GetStorageInventory", procedureName = "WHM_GetStorageInventory", resultClasses = {

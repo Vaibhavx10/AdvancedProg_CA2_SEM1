@@ -21,7 +21,6 @@ import lombok.NoArgsConstructor;
  *	Entity for warehouseuser
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "WarehouseUser")
@@ -38,6 +37,15 @@ public class WarehouseUser {
 	
 	private Integer UserRole;
 
+
+	
+	
+	public WarehouseUser(Integer id, String userName, String password, Integer userRole) {
+		this.id = id;
+		UserName = userName;
+		Password = password;
+		UserRole = userRole;
+	}
 
 	/**
 	 * @return the userName

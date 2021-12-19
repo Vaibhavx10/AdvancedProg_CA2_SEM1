@@ -29,19 +29,31 @@ public class LoginService {
 	 * parameters : WarehouseUser
 	 * returns : WarehouseUser
 	 */	
-	public WarehouseUser addWarehouseUser(WarehouseUser user) {
+	public boolean addWarehouseUser(WarehouseUser user) {
 
 		/* defined object variable */
 		WarehouseUser objUser = null;
+		boolean isExists=false;
 		try {
-			/* call repository and assign to variable*/
-			objUser = loginReposiotry.save(user);
+			
+			objUser = loginReposiotry.findByLoginDetails(user.getUserName(), user.getPassword());
+			
+			if(objUser!=null) {
+				isExists=true;
+			}
+			else {
+				/* call repository and assign to variable*/
+				objUser = loginReposiotry.save(user);
+			}
+				
+				
+
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		/* returns result */
-		return objUser;
+		return isExists;
 	}
 	
 	/**Method : addWarehouseUser

@@ -24,11 +24,18 @@
 					<li class="nav-item "><a href="storage" class="nav-link active">Storage</a></li>
 					<li class="nav-item"><a href="dashboard" class="nav-link active">Dashboard</a></li>
 					<li class="nav-item"><a href="contactUS" class="nav-link active">Contact US</a></li>
-					<li class="nav-item"><a href="" class="nav-link">Logout</a></li>
+					<li class="nav-item nav-link active" onclick="logout()">Logout</li>
 				</ul>
 			</div>
 			</div>
 	</nav>
+<script type="text/javascript">
 
+function logout(){
+	sessionStorage.removeItem('userData');
+	window.location.href = `/`;
+}
+
+</script>
 </body>
 </html>

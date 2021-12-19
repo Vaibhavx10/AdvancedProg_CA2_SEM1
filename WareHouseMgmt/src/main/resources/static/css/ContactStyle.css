@@ -1,14 +1,14 @@
 body {
-  background-color: grey !important;
+  background-color: grey ;
 }
 
 .nav-link {
-  color: white !important;
+  color: white;
   font-size: 18px !important;
 }
 
 .form-label {
-  color: black !important;
+  color: black ;
 }
 
 .contactus {

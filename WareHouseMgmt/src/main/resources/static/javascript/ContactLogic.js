@@ -33,29 +33,34 @@ function countries_code() {
 
 
 function addContactUSInfoInDB() {
+
+	genricHideAll('first-name');
+	genricHideAll('last-name');
+	genricHideAll('e-mail');
+	genricHideAll('countries');
+	genricHideAll('telephone-number');
 	
-	alert("addContactUSInfoInDB Called !! ")
 
 	var fname = genricValidation('first-name');
 	var lname = genricValidation('last-name');
 	var email = genricValidation('e-mail');
 	var country = genricValidation('countries');
 	var phone = genricValidation('telephone-number');
-	var message = genricValidation('commenting');
+	var message = document.getElementById('commenting').value;
 
 
 
-	if (fname != null && lname != null && email != null && country != null && message != null && phone != null) {
+	if (fname != null && lname != null && email != null && country != null && phone != null) {
 		$.ajax({
 			url: "/addContactInfoInDB",
 			type: "post",
 			data: {
-					FirstName: fname,
-					LastName: lname,                                        
-					Email: email,                                        
-					Country: country,                                      
-					Phone: phone,                                        
-					Message: message
+				FirstName: fname,
+				LastName: lname,
+				Email: email,
+				Country: country,
+				Phone: phone,
+				Message: message
 			},
 			success: function(response) {
 				console.log(response)
@@ -74,7 +79,10 @@ function addContactUSInfoInDB() {
 
 }
 
-
+function genricHideAll(idString) {
+	var strName = "val_" + idString;
+	document.getElementById(strName).style.visibility = "hidden";
+}
 
 function genricValidation(idString) {
 

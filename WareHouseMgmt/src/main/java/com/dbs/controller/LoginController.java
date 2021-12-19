@@ -37,15 +37,15 @@ public class LoginController {
 	 * returns : WarehouseUser
 	 */	
 	@PostMapping("/addUser")
-	public WarehouseUser addWarehouseUser(@RequestBody WarehouseUser user) {
-		WarehouseUser objUser=null;
+	public boolean addWarehouseUser(@RequestBody WarehouseUser user) {
+		boolean isExists=false;
 		try {
-			objUser= loginService.addWarehouseUser(user);
+			isExists= loginService.addWarehouseUser(user);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
-		return objUser;
+		return isExists;
 	}
 	
 	

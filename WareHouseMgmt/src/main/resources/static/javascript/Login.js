@@ -81,10 +81,16 @@ function validateLogin() {
 
 		data: WarehouseUser,
 		success: function(response) {
+		
+			if(response!="" && response!=null){
 			console.log(response)
 			const userDetails = { "WarehouseUserId": response['id'], "UserName": response['userName'], "UserRole": response['userRole'] };
 			sessionStorage.setItem("userData", JSON.stringify(userDetails));
 			checkUserSession()
+			}
+			else{
+			alert("Invlaid Login!")
+			}
 		},
 		error: function(xhr) {
 			console.log(xhr)
@@ -157,8 +163,17 @@ function createUser() {
 		data: json,
 		success: function(response) {
 			console.log(response)
-			alert('User Sucessfully created!')
-			window.location.reload();
+			if(response===false){
+				alert('User Sucessfully created!')
+				window.location.reload();
+			}
+			else if(response===true){
+				alert('User already exists!')
+			}
+			else{
+			alert('Opps! something went wrong.')
+			}
+
 		},
 		error: function(xhr) {
 			console.log(xhr)

@@ -49,12 +49,12 @@ public class ProdController {
 		try {
 			//getProduct details from Product Tables
 			List<ProductCategory> prd = prodService.getAllProductCategory();
-			System.out.println("prd "+prd);
+			log.info("prd "+prd);
 			
 			//Used to convert entity to JSON
 			ObjectMapper prdMapper = new ObjectMapper();
 			String jsonProductInfo = prdMapper.writeValueAsString(prd);
-			System.out.println("AllprdInfo :: "+jsonProductInfo);
+			log.info("AllprdInfo :: "+jsonProductInfo);
 			model.addAttribute("allPrduct",jsonProductInfo);
 			
 		} catch (Exception e) {
@@ -84,7 +84,7 @@ public class ProdController {
 	 */
 	@RequestMapping("/")
 	public String loginPage(Model model) {
-		System.out.println("inside dashboard");
+		log.info("inside dashboard");
 		return "Login";
 	}
 
@@ -99,9 +99,9 @@ public class ProdController {
 	public String getAllProducts(Model model) {
 		List<Product> lproduct = prodService.getAllProductsPerDate();
 
-		System.out.println(" lproduct :: " + lproduct);
+		log.info(" lproduct :: " + lproduct);
 
-		System.out.println("lproduct >> " + lproduct);
+		log.info("lproduct >> " + lproduct);
 
 		ArrayList<String> xAxis = new ArrayList<String>();
 		ArrayList<Long> yAxis = new ArrayList<Long>();
@@ -122,7 +122,7 @@ public class ProdController {
 		try {
 			String jsonShipmentInfo = objmap.writeValueAsString(shdata);
 			model.addAttribute("shipmentData", jsonShipmentInfo);
-			System.out.println(jsonShipmentInfo);
+			log.info(jsonShipmentInfo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

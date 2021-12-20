@@ -2,9 +2,12 @@ package com.dbs.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dbs.controller.ProdController;
 import com.dbs.entity.Product;
 import com.dbs.entity.ProductCategory;
 import com.dbs.entity.Shipment;
@@ -18,6 +21,8 @@ import com.dbs.repository.ShipmentRepo;
  */
 @Service
 public class ProdService {
+	
+	private final Logger log = LoggerFactory.getLogger(ProdController.class);
 
 	
 	@Autowired
@@ -135,7 +140,7 @@ public class ProdService {
 	 * returns : List<Shipment>
 	 */
 	public List<Shipment> getShipmentDetails() {
-		System.out.println("shipmentRepo :: "+shipmentRepo.findAll());
+		log.info("shipmentRepo :: "+shipmentRepo.findAll());
 		return shipmentRepo.findAll();
 	}
 	

@@ -2,12 +2,15 @@ package com.dbs.controller;
 
 import java.time.LocalDate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dbs.entity.Product;
+import com.dbs.service.EmailNotification;
 import com.dbs.service.ProdService;
 
 
@@ -17,6 +20,7 @@ import com.dbs.service.ProdService;
  */
 @RestController
 public class AddProductController {
+	private final Logger log = LoggerFactory.getLogger(AddProductController.class);
 
 	@Autowired
 	ProdService prodService;
@@ -32,7 +36,7 @@ public class AddProductController {
 	public String addDataToProductTable(@RequestParam String productname, @RequestParam String quantity,
 			@RequestParam String unitprice, @RequestParam String productcatname, @RequestParam String description,
 			@RequestParam String ddproductcatname , @RequestParam String productCategoryId , @RequestParam String storageTypeId) {
-			System.out.println("productCategoryId :: "+productCategoryId);
+			log.info("productCategoryId :: "+productCategoryId);
 			LocalDate prdDate = LocalDate.now(); // Create a date object
 			Product prd = new Product();
 			try {
@@ -52,7 +56,7 @@ public class AddProductController {
 			}
 		
 
-		System.out.println("productname :: " + productname);
+			log.info("productname :: " + productname);
 
 		return "Cool";
 	}

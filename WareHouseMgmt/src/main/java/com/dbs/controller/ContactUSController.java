@@ -2,6 +2,8 @@ package com.dbs.controller;
 
 import java.time.LocalDate;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +20,9 @@ import com.dbs.repository.ContactUSRepo;
  */
 @RestController
 public class ContactUSController {
+	
+	private final Logger log = LoggerFactory.getLogger(ContactUSController.class);
+	
 
 	@Autowired
 	private ContactUSRepo contactUSRepo;
@@ -37,7 +42,7 @@ public class ContactUSController {
 			ContactUS contact = new ContactUS(FirstName, LastName, Email, Country, Phone, Message,contactDate.toString());
 			contactUSRepo.save(contact);
 
-			System.out.println("contactus :: " + Message);
+			log.info("contactus :: " + Message);
 			return "Pass";
 
 		} catch (Exception e) {
